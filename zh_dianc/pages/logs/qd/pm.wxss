@@ -1,0 +1,124 @@
+page {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #eaeaea;
+}
+
+.page1 {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #eaeaea;
+}
+
+.head {
+    width: 110%;
+    overflow-x: hidden;
+    height: 250rpx;
+    background: linear-gradient(90deg,#90d7ff,#34aaff);
+    left: -5%;
+    top: -10rpx;
+    position: relative;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.bd {
+    background: #fff;
+    height: 220rpx;
+    position: relative;
+    margin: -130rpx 30rpx 50rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30rpx;
+    box-shadow: 10rpx 10rpx 5rpx #999;
+}
+
+.bd view {
+    font-size: 32rpx;
+    color: #34aaff;
+    width: 33.33%;
+    text-align: center;
+}
+
+.bdimg {
+    height: 220rpx;
+    position: relative;
+}
+
+.bdimg image {
+    position: absolute;
+    width: 150rpx;
+    height: 150rpx;
+    top: -75rpx;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.bdimg view {
+    width: 100%;
+    position: absolute;
+    bottom: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.pmlist {
+    background: #fff;
+}
+
+.pm {
+    background: #fff;
+    padding: 15rpx 20rpx 15rpx 0;
+    font-size: 30rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1rpx solid #e6e6e6;
+}
+
+.pmhd {
+    margin: 0 30rpx;
+}
+
+.pm image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    margin-right: 50rpx;
+}
+
+.pmbd {
+    flex: 1;
+    color: #999;
+}
+
+.pmft {
+    color: #34aaff;
+}
+
+.xz {
+    background: #eff6ff;
+}
+
+.xztext {
+    color: #333;
+}
+
+.kong {
+    height: 110rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    color: #666;
+}
+
+.kong image {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 30rpx;
+}

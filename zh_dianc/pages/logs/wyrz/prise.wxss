@@ -1,0 +1,263 @@
+.geren_headerp {
+    font-size: 26rpx;
+    background-color: white;
+}
+
+.geren_header_onep {
+    border-bottom: 1rpx solid #d5d5d5;
+    color: #333;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90rpx;
+    padding: 0rpx 30rpx;
+}
+
+.header_leftp {
+    color: #666;
+    font-size: 28rpx;
+}
+
+.header_rightp {
+    color: #333;
+}
+
+.sctp {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.bannerp {
+    width: 50%;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 20rpx 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.banner_leftp {
+    display: flex;
+    flex-direction: column;
+}
+
+.benner_titlep {
+    color: #65717F;
+    font-size: 24rpx;
+}
+
+.banner_boxp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #959EA5;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+    width: 280rpx;
+    height: 200rpx;
+    border-radius: 10rpx;
+    background-color: #E9F6FF;
+    border: 1rpx solid #E5EDFE;
+}
+
+.camerap {
+    width: 100rpx;
+    height: 80rpx;
+    margin-bottom: 15rpx;
+}
+
+.camera2 {
+    width: 220rpx;
+    height: 200rpx;
+}
+
+.footerp {
+    margin-top: 30rpx;
+    padding: 10rpx 30rpx 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_btnp {
+    color: #666;
+    background-color: #CCCCCC;
+    width: 100%;
+    border: none;
+    font-size: 26rpx;
+}
+
+.header_inputp {
+    flex: 1;
+    color: #333;
+}
+
+.header_input2p {
+    flex: 1;
+    color: #333;
+}
+
+.geren_header {
+    font-size: 28rpx;
+    background-color: white;
+}
+
+.geren_header_one {
+    border-bottom: 1rpx solid #DCDCDC;
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 90rpx;
+    padding: 0rpx 30rpx;
+}
+
+.header_left {
+    width: 150rpx;
+    color: #666;
+    margin-right: 30rpx;
+}
+
+.header_right {
+    color: #333;
+}
+
+.banner {
+    background-color: white;
+    padding: 30rpx 30rpx 50rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.banner_left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner_right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.benner_title {
+    color: #65717F;
+    font-size: 24rpx;
+}
+
+.banner_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #959EA5;
+    font-size: 22rpx;
+    margin-top: 20rpx;
+    width: 280rpx;
+    height: 200rpx;
+    border-radius: 10rpx;
+    background-color: #E9F6FF;
+    border: 1rpx solid #E5EDFE;
+}
+
+.camera {
+    width: 100rpx;
+    height: 80rpx;
+    margin-bottom: 15rpx;
+}
+
+.agree {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    padding: 30rpx;
+}
+
+.agree_text {
+    color: #333;
+}
+
+.agree_text2 {
+    color: #41B0FF;
+}
+
+.footer {
+    padding: 10rpx 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_btn {
+    color: #fff;
+    background-color: #34aaff;
+    width: 100%;
+    border: none;
+    font-size: 28rpx;
+    line-height: 80rpx;
+}
+
+.color {
+    background-color: #41B0FF;
+    color: white;
+}
+
+.kcrzxy {
+    width: 80%;
+    left: 50%;
+    top: 10%;
+    position: fixed;
+    transform: translate(-50%,0);
+    background: #fff;
+    border-radius: 10px;
+    z-index: 999;
+}
+
+.kcrzxyhd {
+    text-align: center;
+    font-size: 30rpx;
+    background: #34aaff;
+    height: 70rpx;
+    line-height: 70rpx;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.queren {
+    position: relative;
+    height: 70rpx;
+    width: 30%;
+    left: 35%;
+    font-size: 30rpx;
+    line-height: 70rpx;
+    text-align: center;
+    color: white;
+    background: #34aaff;
+    border-radius: 10rpx;
+    margin: 5px 0;
+}
+
+.queren:active {
+    color: rgba(255,255,255,0.6);
+    opacity: 0.6;
+}
+
+.zhezhao {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 998;
+}

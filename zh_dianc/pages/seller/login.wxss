@@ -1,0 +1,106 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.bgimg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.headwz {
+    position: absolute;
+    top: 4%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35rpx;
+    color: #fff;
+}
+
+.login {
+    position: absolute;
+    width: 86%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.weui-cells {
+    padding: 100rpx 50rpx;
+    border-top-left-radius: 15rpx;
+    border-top-right-radius: 15rpx;
+}
+
+.weui-cells:before {
+    border-top: none;
+}
+
+.weui-cells:after {
+    border-bottom: none;
+}
+
+.weui-cell {
+    font-size: 30rpx;
+    padding: 20rpx 0 0;
+}
+
+.weui-cell_input {
+    padding-top: 20rpx;
+}
+
+.weui-label {
+    width: 70rpx;
+    height: 2.58823529em;
+    display: flex;
+    align-items: center;
+}
+
+.weui-label image {
+    width: 35rpx;
+    height: 40rpx;
+}
+
+.weui-btn {
+    margin-top: 0;
+    font-size: 35rpx;
+}
+
+button {
+    line-height: 2.8;
+    border-radius: 0;
+    border-bottom-left-radius: 15rpx;
+    border-bottom-right-radius: 15rpx;
+}
+
+button::after {
+    border: none;
+}
+
+.hdimg {
+    z-index: 999;
+    width: 50vw;
+    height: 45vw;
+    position: absolute;
+    top: 11.1%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ft {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    font-size: 35rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ft image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}

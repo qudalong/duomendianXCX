@@ -1,0 +1,573 @@
+<view class="ddview" wx:if="{{mdxx.more=='1'}}">
+    <view class="font">
+        <view class="header" style="background:{{color}}">
+            <view class="header_loc">
+                <view bindtap="xzwz" class="location">
+                    <image class="location_icon" src="../images/dingwei@2x.png"></image>
+                    <view>{{weizhi}}</view>
+                </view>
+                <view class="tianqi">
+                    <view class="tianqi-l">
+                        <view>{{tianqi.temperature.data}}°</view>
+                        <view>{{tianqi.weather.data}}</view>
+                    </view>
+                    <view class="tianqi-r">
+                        <image src="../images/duoyun.png" wx:if="{{tianqi.weather.data=='多云'}}"></image>
+                        <image src="../images/qing.png" style="height:50rpx;" wx:elif="{{tianqi.weather.data=='晴'}}"></image>
+                        <image src="../images/bkx.png" style="height:50rpx" wx:else></image>
+                    </view>
+                </view>
+            </view>
+            <navigator url="sssj">
+                <view class="search">
+                    <view class="rel">
+                        <icon size="15" type="search"></icon>
+                        <input placeholder="搜索商家" placeholderStyle="font-family:微软雅黑;color:#aaa"></input>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="body">
+            <view class="banner" wx:if="{{slider.length!=0}}">
+                <view class="swiper-container">
+                    <swiper autoplay="auto" circular="true" class="swiper" duration="500" indicatorActiveColor="#34AAFF" indicatorColor="white" indicatorDots="true" interval="5000">
+                        <swiper-item bindtap="tzweb" data-index="{{index}}" wx:for="{{slider}}" wx:key="unique">
+                            <image class="img" src="{{url}}{{item.logo}}"></image>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+            <view wx:if="{{mdxx.typeset=='1'}}">
+                <swiper bindchange="bindChange" circular="true" class="swiper-box" duration="300" style="height:195rpx" wx:if="{{navs.length==1&&navs[0].length<5}}">
+                    <swiper-item class="handover" wx:for="{{navs}}">
+                        <view class="classification">
+                            <view bindtap="tzfl" class="child_element" data-flinfo="{{item}}" wx:for="{{item}}">
+                                <view class="slide_icon">
+                                    <image class="img" src="{{url}}{{item.img}}" style="border-radius: 50%;"></image>
+                                </view>
+                                <view class="slide_icon_text">{{item.type_name}}</view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </swiper>
+                <swiper bindchange="bindChange" circular="true" class="swiper-box" duration="300" style="height:390rpx" wx:else>
+                    <swiper-item class="handover" wx:for="{{navs}}">
+                        <view class="classification">
+                            <view bindtap="tzfl" class="child_element" data-flinfo="{{item}}" wx:for="{{item}}">
+                                <view class="slide_icon">
+                                    <image class="img" src="{{url}}{{item.img}}" style="border-radius: 50%;"></image>
+                                </view>
+                                <view class="slide_icon_text">{{item.type_name}}</view>
+                            </view>
+                        </view>
+                    </swiper-item>
+                </swiper>
+                <view class="swiper_tab" wx:if="{{navs.length>8}}">
+                    <view class="swiper-tab">
+                        <view class="swiper-tab-list {{currentTab==index?'on':''}}" data-current="0" wx:for="{{navs}}"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="recommed">
+            <view class="paixu">
+                <view bindtap="tabClick" class="{{activeIndex==index?'selected':'default'}}" id="{{index}}" wx:for="{{listarr}}" wx:key="*this">{{item}}
+              </view>
+            </view>
+            <view class="jzz" hidden="{{qqsj}}">
+                <image class="Rotation" src="../images/jzz.png"></image>
+                <view>加载中...</view>
+            </view>
+            <view hidden="{{activeIndex!=1}}">
+                <block wx:if="{{qqsj}}">
+                    <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{tjstorelist.length!=0}}" wx:for="{{tjstorelist}}">
+                        <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                        <view class="recommed_content" style="flex:1">
+                            <view class="recommed_title">
+                                <view class="title_right">{{item.name}}</view>
+                            </view>
+                            <view class="recommed_title">
+                                <view class="pingjia_fenshu3">
+                                    <view class="kximg">
+                                        <image src="../images/i-star.png"></image>
+                                    </view>
+                                    <view class="sximg" style="width: {{item.score*20}}%">
+                                        <image src="../images/i-stars.png"></image>
+                                    </view>
+                                </view>
+                                <view class="pingfen">{{item.score}}</view>
+                                <view class="recommed_midel">月售{{item.sales}}单</view>
+                            </view>
+                            <view class="recommed_title recommed_end">
+                                <view class="border_right">￥{{item.start_at}}起送</view>
+                                <view class="border_right1">配送费￥{{item.freight}}</view>
+                            </view>
+                        </view>
+                        <view class="recommed_right">
+                            <view class="recommed_bao">保</view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                                <view>准时达</view>
+                                <view>达达配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                                <view>准时达</view>
+                                <view>商家配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                                <view>准时达</view>
+                                <view>UU跑腿</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                                <view>准时达</view>
+                                <view>人人派送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                                <view>准时达</view>
+                                <view>快服务</view>
+                            </view>
+                            <view class="recommed_mi">
+                                <view>离你{{item.aa}}</view>
+                                <view></view>
+                                <view>{{item.sd_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="jzz" hidden="{{mygd}}">
+                        <image class="Rotation" src="../images/jzz.png"></image>
+                        <view>加载中...</view>
+                    </view>
+                    <view class="kong" wx:if="{{tjstorelist.length==0}}">
+                        <image src="../images/wushuju.png"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+            </view>
+            <view hidden="{{activeIndex!=2}}">
+                <block wx:if="{{qqsj}}">
+                    <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{xlstorelist.length!=0}}" wx:for="{{xlstorelist}}">
+                        <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                        <view class="recommed_content" style="flex:1">
+                            <view class="recommed_title">
+                                <view class="title_right">{{item.name}}</view>
+                            </view>
+                            <view class="recommed_title">
+                                <view class="pingjia_fenshu3">
+                                    <view class="kximg">
+                                        <image src="../images/i-star.png"></image>
+                                    </view>
+                                    <view class="sximg" style="width: {{item.score*20}}%">
+                                        <image src="../images/i-stars.png"></image>
+                                    </view>
+                                </view>
+                                <view class="pingfen">{{item.score}}</view>
+                                <view class="recommed_midel">月售{{item.sales}}单</view>
+                            </view>
+                            <view class="recommed_title recommed_end">
+                                <view class="border_right">￥{{item.start_at}}起送</view>
+                                <view class="border_right1">配送费￥{{item.freight}}</view>
+                            </view>
+                        </view>
+                        <view class="recommed_right">
+                            <view class="recommed_bao">保</view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                                <view>准时达</view>
+                                <view>达达配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                                <view>准时达</view>
+                                <view>商家配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                                <view>准时达</view>
+                                <view>UU跑腿</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                                <view>准时达</view>
+                                <view>人人派送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                                <view>准时达</view>
+                                <view>快服务</view>
+                            </view>
+                            <view class="recommed_mi">
+                                <view>离你{{item.aa}}</view>
+                                <view></view>
+                                <view>{{item.sd_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="jzz" hidden="{{mygd}}">
+                        <image class="Rotation" src="../images/jzz.png"></image>
+                        <view>加载中...</view>
+                    </view>
+                    <view class="kong" wx:if="{{xlstorelist.length==0}}">
+                        <image src="../images/wushuju.png"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+            </view>
+            <view hidden="{{activeIndex!=3}}">
+                <block wx:if="{{qqsj}}">
+                    <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{pfstorelist.length!=0}}" wx:for="{{pfstorelist}}">
+                        <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                        <view class="recommed_content" style="flex:1">
+                            <view class="recommed_title">
+                                <view class="title_right">{{item.name}}</view>
+                            </view>
+                            <view class="recommed_title">
+                                <view class="pingjia_fenshu3">
+                                    <view class="kximg">
+                                        <image src="../images/i-star.png"></image>
+                                    </view>
+                                    <view class="sximg" style="width: {{item.score*20}}%">
+                                        <image src="../images/i-stars.png"></image>
+                                    </view>
+                                </view>
+                                <view class="pingfen">{{item.score}}</view>
+                                <view class="recommed_midel">月售{{item.sales}}单</view>
+                            </view>
+                            <view class="recommed_title recommed_end">
+                                <view class="border_right">￥{{item.start_at}}起送</view>
+                                <view class="border_right1">配送费￥{{item.freight}}</view>
+                            </view>
+                        </view>
+                        <view class="recommed_right">
+                            <view class="recommed_bao">保</view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                                <view>准时达</view>
+                                <view>达达配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                                <view>准时达</view>
+                                <view>商家配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                                <view>准时达</view>
+                                <view>UU跑腿</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                                <view>准时达</view>
+                                <view>人人派送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                                <view>准时达</view>
+                                <view>快服务</view>
+                            </view>
+                            <view class="recommed_mi">
+                                <view>离你{{item.aa}}</view>
+                                <view></view>
+                                <view>{{item.sd_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="jzz" hidden="{{mygd}}">
+                        <image class="Rotation" src="../images/jzz.png"></image>
+                        <view>加载中...</view>
+                    </view>
+                    <view class="kong" wx:if="{{pfstorelist.length==0}}">
+                        <image src="../images/wushuju.png"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+            </view>
+            <view hidden="{{activeIndex!=0}}">
+                <block wx:if="{{qqsj}}">
+                    <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{jlstorelist.length!=0}}" wx:for="{{jlstorelist}}">
+                        <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                        <view class="recommed_content" style="flex:1">
+                            <view class="recommed_title">
+                                <view class="title_right">{{item.name}}</view>
+                            </view>
+                            <view class="recommed_title">
+                                <view class="pingjia_fenshu3">
+                                    <view class="kximg">
+                                        <image src="../images/i-star.png"></image>
+                                    </view>
+                                    <view class="sximg" style="width: {{item.score*20}}%">
+                                        <image src="../images/i-stars.png"></image>
+                                    </view>
+                                </view>
+                                <view class="pingfen">{{item.score}}</view>
+                                <view class="recommed_midel">月售{{item.sales}}单</view>
+                            </view>
+                            <view class="recommed_title recommed_end">
+                                <view class="border_right">￥{{item.start_at}}起送</view>
+                                <view class="border_right1">配送费￥{{item.freight}}</view>
+                            </view>
+                        </view>
+                        <view class="recommed_right">
+                            <view class="recommed_bao">保</view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                                <view>准时达</view>
+                                <view>达达配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                                <view>准时达</view>
+                                <view>商家配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                                <view>准时达</view>
+                                <view>UU跑腿</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                                <view>准时达</view>
+                                <view>人人派送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                                <view>准时达</view>
+                                <view>快服务</view>
+                            </view>
+                            <view class="recommed_mi">
+                                <view>离你{{item.aa}}</view>
+                                <view></view>
+                                <view>{{item.sd_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="jzz" hidden="{{mygd}}">
+                        <image class="Rotation" src="../images/jzz.png"></image>
+                        <view>加载中...</view>
+                    </view>
+                    <view class="kong" wx:if="{{jlstorelist.length==0}}">
+                        <image src="../images/wushuju.png"></image>
+                        <view>暂无数据</view>
+                    </view>
+                </block>
+            </view>
+            <view class="jzwb" wx:if="{{jzwb}}">
+                <view class="hx"></view>
+                <view class="wz">加载完毕</view>
+                <view class="hx"></view>
+            </view>
+        </view>
+    </view>
+    <view class="copyright">
+        <view bindtap="tzxcx" class="copyright_logo" data-appid="{{mdxx.tz_appid}}">
+            <image class="copyright_img" mode="aspectFill" src="../images/copyright_logo.png"></image>
+            <view class="copyright_text">{{mdxx.bq_name}}</view>
+        </view>
+        <view class="copyright_txt">{{mdxx.support}}</view>
+    </view>
+</view>
+<view class="font" wx:if="{{mdxx.more=='2'}}">
+    <view class="shop_header" style="background:{{color}}">
+        <view class="shop_header1">
+            <view class="sh_img">
+                <image mode="aspectFill" src="{{url}}{{store.logo}}" style="width:150rpx;height:150rpx;"></image>
+            </view>
+            <view class="sh_text">
+                <view class="sh_text3">
+                    <view class="sh_title">
+                        <view class="sh_text1">{{store.name}}</view>
+                        <view class="sh_title1">
+                            <text> 配送范围：{{distance}}公里</text>
+                            <text> | ¥{{store.start_at}}元起送</text>
+                            <text wx:if="{{rest==1}}">
+                                <text class="zhengzai" style="margin-left:20rpx"> 商家休息了</text>
+                            </text>
+                            <text wx:if="{{rest==2}}">
+                                <text class="zhengzai" style="margin-left:20rpx;" wx:if="{{time==1}}">正在营业</text>
+                                <text class="zhengzai" style="margin-left:20rpx" wx:if="{{time==2}}">暂未营业</text>
+                                <text class="zhengzai" style="margin-left:20rpx" wx:if="{{time==3}}">暂未营业</text>
+                            </text>
+                        </view>
+                    </view>
+                </view>
+                <view class="sh_text2">
+            公告：{{store.announcement}}
+          </view>
+            </view>
+        </view>
+        <view class="shop_header2">
+            <view class="shop_header3">
+                <swiper autoplay="true" circular="true" interval="2000" style="height:50rpx;" vertical="true">
+                    <swiper-item wx:if="{{store.xyh_open=='1'}}">
+                        <view style="display:flex">
+                            <view class="shop_header4">首</view>
+                            <view>新用户下单立减{{store.xyh_money}}元(不与其它活动同享)</view>
+                        </view>
+                    </swiper-item>
+                    <swiper-item wx:if="{{mj.length!=0}}">
+                        <view class="mjhd">
+                            <text class="shop_header4" style="background-color:#EB747C">减</text>
+                            <text style="margin-right:10rpx;" wx:for="{{mj}}">满{{item.full}}减{{item.reduction}}</text>
+                        </view>
+                    </swiper-item>
+                </swiper>
+            </view>
+            <view>{{hdnum}}个活动</view>
+        </view>
+    </view>
+    <view class="banner" wx:if="{{store.is_display!=2}}">
+        <view class="swiper-container" wx:if="{{store.img!=''}}">
+            <swiper autoplay="auto" circular="true" class="swiper" duration="500" indicatorDots="true" interval="5000">
+                <swiper-item wx:for="{{store.img}}" wx:key="unique">
+                    <image class="img" mode="aspectFill" src="{{url}}{{item}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+    <view class="info_list">
+        <navigator url="../reserve/reserve" wx:if="{{store.is_yy=='1'}}">
+            <view class="info_listorder">
+                <image class="info_listimg" src="../images/yuding@2x.png" wx:if="{{store.yy_img==''}}"></image>
+                <image class="info_listimg" src="{{url}}{{store.yy_img}}" wx:else></image>
+                <text class="infolistext" wx:if="{{store.yy_name==''}}">预订</text>
+                <text class="infolistext" wx:else>{{store.yy_name}}</text>
+            </view>
+        </navigator>
+        <view bindtap="breakout" class="info_listorder" wx:if="{{store.is_dn=='1'}}">
+            <image class="info_listimg" src="../images/diancai@2x.png" wx:if="{{store.dn_img==''}}"></image>
+            <image class="info_listimg" src="{{url}}{{store.dn_img}}" wx:else></image>
+            <text class="infolistext" wx:if="{{store.dn_name==''}}">点餐</text>
+            <text class="infolistext" wx:else>{{store.dn_name}}</text>
+        </view>
+        <view bindtap="takeOut" class="info_listorder" wx:if="{{store.is_wm=='1'}}">
+            <image class="info_listimg" src="../images/waimai@2x.png" wx:if="{{store.wm_img==''}}"></image>
+            <image class="info_listimg" src="{{url}}{{store.wm_img}}" wx:else></image>
+            <text class="infolistext" wx:if="{{store.wm_name==''}}">外卖</text>
+            <text class="infolistext" wx:else>{{store.wm_name}}</text>
+        </view>
+        <navigator class="info_listorder1" url="../coupons/shop_coupons?dnjr=1" wx:if="{{store.is_pd=='1'}}">
+            <image class="info_listimg" src="../images/youhui.png" wx:if="{{store.pd_img==''}}"></image>
+            <image class="info_listimg" src="{{url}}{{store.pd_img}}" wx:else></image>
+            <text class="infolistext" wx:if="{{store.pd_name==''}}">优惠券</text>
+            <text class="infolistext" wx:else>{{store.pd_name}}</text>
+        </navigator>
+        <view bindtap="facing" class="info_listorder" wx:if="{{store.is_sy=='1'}}">
+            <image class="info_listimg" src="../images/shouyin@2x.png" wx:if="{{store.sy_img==''}}"></image>
+            <image class="info_listimg" src="{{url}}{{store.sy_img}}" wx:else></image>
+            <text class="infolistext" wx:if="{{store.sy_name==''}}">收银</text>
+            <text class="infolistext" wx:else>{{store.sy_name}}</text>
+        </view>
+    </view>
+    <view class="info_seller">
+        <view class="info_sellertitle">
+            <view>商家信息</view>
+            <view class="sjxxright">
+                <image bindtap="gbbjyy" class="gbbjyy" src="../images/{{bjyylb}}.png" wx:if="{{store.store_mp3!=''&&store.is_mp3=='1'}}"></image>
+                <view bindtap="showShareModal" class="share-btn">
+                    <image src="../images/fx.png"></image>
+                    <view style="color: #888">分享</view>
+                </view>
+            </view>
+        </view>
+        <view class="info_sellertime" style="border-bottom:1rpx solid #E7E7E8;">
+            <view>营业时间</view>
+            <view>{{store.time}}-{{store.time2}}</view>
+            <view style="margin-left:30rpx;" wx:if="{{store.time3!=''&&store.time4!=''}}">{{store.time3}}-{{store.time4}}</view>
+        </view>
+        <view bindtap="call_phone" class="info_sllertel">
+            <view class="info_sllertelw">
+                <view>商家电话</view>
+                <view>{{store.tel}}</view>
+            </view>
+            <image class="info_sllerimg" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="tomap" class="info_sllertel">
+            <view class="info_sllertelw">
+                <view>商家地址</view>
+                <view>{{store.address}}</view>
+            </view>
+            <image class="info_sllerimg" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="tzsjhj" class="info_sllertel" data-sjid="{{store.id}}">
+            <view class="info_sllertelw">
+                <view>商家环境</view>
+            </view>
+            <image class="info_sllerimg" src="../images/Path@2x.png"></image>
+        </view>
+    </view>
+    <view class="info_distribution" wx:if="{{bqxx.is_psxx=='1'}}">
+        <view class="distribution_title">配送信息</view>
+        <view class="distribution_time">
+            <view class="distribution_timep" style="color:{{color}};border:1rpx solid {{color}}" wx:if="{{store.ps_mode==1}}">达达配送</view>
+            <view class="distribution_timep" style="color:{{color}};border:1rpx solid {{color}}" wx:if="{{store.ps_mode==2}}">商家配送</view>
+            <view class="distribution_timep" style="color:{{color}};border:1rpx solid {{color}}" wx:if="{{store.ps_mode==3}}">UU跑腿</view>
+            <view class="distribution_timep" style="color:{{color}};border:1rpx solid {{color}}" wx:if="{{store.ps_mode==4}}">人人派送</view>
+            <view class="distribution_timep" style="color:{{color}};border:1rpx solid {{color}}" wx:if="{{store.ps_mode==5}}">快服务</view>
+            <view class="distribution_timez">
+                <view>准时必达，专业配送，提供高品质配送服务</view>
+                <view>配送费 ¥ {{store.freight}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="discount" style="margin-top:0rpx;" wx:if="{{mj.length!=0}}">
+        <view>减</view>
+        <view style="color: #666;margin-right:10rpx;" wx:for="{{mj}}">满{{item.full}}减{{item.reduction}}元</view>
+    </view>
+    <view class="discount" wx:if="{{store.xyh_open=='1'}}">
+        <view style="background-color:#70BC46">首</view>
+        <view>新用户下单立减{{store.xyh_money}}元(不与其它活动同享)</view>
+    </view>
+    <view class="discount">
+        <image src="../images/weixin.png" style="width:40rpx;height:40rpx;"></image>
+        <view>该商家支持微信支付</view>
+    </view>
+    <view class="copyright">
+        <view bindtap="tzxcx" class="copyright_logo" data-appid="{{mdxx.tz_appid}}">
+            <image class="copyright_img" mode="aspectFill" src="../images/copyright_logo.png"></image>
+            <view class="copyright_text">{{mdxx.bq_name}}</view>
+        </view>
+        <view class="copyright_txt">{{mdxx.support}}</view>
+    </view>
+</view>
+<view class="share-modal {{share_modal_active}}">
+    <view class="share-modal-body">
+        <view class="flex-row">
+            <view class="flex-grow-1 flex-x-center">
+                <button class="share-bottom" openType="share">
+                    <image src="../images/wxfx.png"></image>
+                    <view>分享给朋友</view>
+                </button>
+            </view>
+            <view class="flex-grow-1 flex-x-center">
+                <view bindtap="getGoodsQrcode" class="share-bottom">
+                    <image src="../images/schb.png"></image>
+                    <view>分享商家海报</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="shareModalClose" class="share-modal-close flex-y-center flex-x-center">关闭</view>
+    </view>
+</view>
+<view class="goods-qrcode-modal {{goods_qrcode_active}}">
+    <view class="goods-qrcode-body flex-col">
+        <view class="flex-grow-1" style="position: relative">
+            <view style="position: absolute;left: 0;top:0;width: 100%;height: 100%;padding: 100rpx 100rpx 60rpx">
+                <view class="goods-qrcode-box">
+                    <view class="goods-qrcode-loading flex-x-center flex-y-center">
+                        <view class="flex-x-center flex-col">
+                            <image src="../images/loading2.svg" style="width: 150rpx;height: 150rpx"></image>
+                            <view style="color: #888">海报生成中</view>
+                        </view>
+                    </view>
+                    <image bindtap="goodsQrcodeClick" class="goods-qrcode {{goods_qrcode?'active':''}}" data-src="{{goods_qrcode}}" mode="aspectFit" src="{{goods_qrcode}}"></image>
+                </view>
+            </view>
+        </view>
+        <view class="flex-grow-0 flex-col flex-x-center" style="padding: 0 60rpx 80rpx">
+            <view style="margin-bottom: 20rpx;padding: 0 40rpx">
+                <button bindtap="saveGoodsQrcode" data-src="{{goods_qrcode}}" style="background: #34aaff;color: #fff;" wx:if="{{goods_qrcode}}">
+          保存图片
+        </button>
+                <button style="opacity: .4" wx:else>保存图片</button>
+            </view>
+            <view style="color: #888;font-size: 10pt;text-align: center">保存至相册可以分享到朋友圈</view>
+        </view>
+        <view bindtap="goodsQrcodeClose" class="goods-qrcode-close">
+            <image src="../images/icon-close2.png" style="width: 70rpx;height: 70rpx;display: block"></image>
+        </view>
+    </view>
+</view>
+<view class="zhezhao" hidden="{{kpgg}}"></view>
+<view class="kpgg" hidden="{{kpgg}}">
+    <view bindtap="closekpgg" class="close-kpgg">
+        <image class="img" src="../images/x.png"></image>
+    </view>
+    <swiper circular="true" class="kpgg-swiper" duration="500" indicatorDots="true">
+        <swiper-item bindtap="ggtzweb" data-index="{{index}}" wx:for="{{kpggimg}}" wx:key="unique">
+            <image class="img" mode="scaleToFill" src="{{url}}{{item.logo}}"></image>
+        </swiper-item>
+    </swiper>
+</view>

@@ -1,0 +1,103 @@
+{
+    "pages": [
+        "zh_dianc/pages/home/home",
+        "zh_dianc/pages/home/sjfl",
+        "zh_dianc/pages/home/sssj",
+        "zh_dianc/pages/home/webhtml",
+        "zh_dianc/pages/info/sjhj",
+        "zh_dianc/pages/dishinfo/dishinfo",
+        "zh_dianc/pages/order/order",
+        "zh_dianc/pages/coupons/coupons_details",
+        "zh_dianc/pages/coupons/shop_coupons",
+        "zh_dianc/pages/coupons/mine_coupons",
+        "zh_dianc/pages/info/info",
+        "zh_dianc/pages/list/list",
+        "zh_dianc/pages/list/choose/choose",
+        "zh_dianc/pages/list/reserveinfo/reserveinfo",
+        "zh_dianc/pages/list/waim/waim",
+        "zh_dianc/pages/index/index",
+        "zh_dianc/pages/index/getdl",
+        "zh_dianc/pages/dish/dish",
+        "zh_dianc/pages/reserve/reserve",
+        "zh_dianc/pages/reserve/reserveinfo",
+        "zh_dianc/pages/fukuan/fukuan",
+        "zh_dianc/pages/comment/comment",
+        "zh_dianc/pages/comsuc/comsuc",
+        "zh_dianc/pages/pay/pay",
+        "zh_dianc/pages/logs/logs",
+        "zh_dianc/pages/logs/kfzx",
+        "zh_dianc/pages/logs/bzzx",
+        "zh_dianc/pages/logs/integral",
+        "zh_dianc/pages/logs/wallet",
+        "zh_dianc/pages/logs/walletmx",
+        "zh_dianc/pages/logs/cash",
+        "zh_dianc/pages/logs/qd/qd",
+        "zh_dianc/pages/logs/qd/pm",
+        "zh_dianc/pages/logs/wyrz/authen",
+        "zh_dianc/pages/logs/wyrz/prise",
+        "zh_dianc/pages/seller/seller",
+        "zh_dianc/pages/seller/login",
+        "zh_dianc/pages/seller/template",
+        "zh_dianc/pages/seller/gzt",
+        "zh_dianc/pages/seller/wytx",
+        "zh_dianc/pages/seller/txmx",
+        "zh_dianc/pages/seller/dd",
+        "zh_dianc/pages/seller/dd/tndd",
+        "zh_dianc/pages/seller/dd/wmdd",
+        "zh_dianc/pages/seller/dd/yddd",
+        "zh_dianc/pages/seller/dd/dmfdd",
+        "zh_dianc/pages/seller/dd/dddl",
+        "zh_dianc/pages/seller/dd/tndddl",
+        "zh_dianc/pages/seller/shezhi",
+        "zh_dianc/pages/seller/cp/cplb",
+        "zh_dianc/pages/seller/cp/spfl",
+        "zh_dianc/pages/seller/cp/bjcp",
+        "zh_dianc/pages/seller/cp/tjgg",
+        "zh_dianc/pages/integral/integral",
+        "zh_dianc/pages/integral/integralinfo/integralinfo",
+        "zh_dianc/pages/integral/record/record",
+        "zh_dianc/pages/logs/distribution/distribution",
+        "zh_dianc/pages/logs/distribution/yaoqing",
+        "zh_dianc/pages/logs/distribution/fxyj",
+        "zh_dianc/pages/logs/distribution/wdtd",
+        "zh_dianc/pages/logs/distribution/txmx",
+        "zh_dianc/pages/logs/distribution/symx"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#34AAFF",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "white",
+        "enablePullDownRefresh": true,
+        "onReachBottomDistance": 50
+    },
+    "tabBar": {
+        "selectedColor": "#41B0FF",
+        "backgroundColor": "#fff",
+        "color": "#333",
+        "list": [
+            {
+                "pagePath": "zh_dianc/pages/home/home",
+                "text": "首页",
+                "iconPath": "zh_dianc/pages/images/shouye@2x.png",
+                "selectedIconPath": "zh_dianc/pages/images/shouye-fill@2x.png"
+            },
+            {
+                "pagePath": "zh_dianc/pages/list/list",
+                "text": "订单",
+                "iconPath": "zh_dianc/pages/images/dingdan@2x.png",
+                "selectedIconPath": "zh_dianc/pages/images/dingdan-fill@2x.png"
+            },
+            {
+                "pagePath": "zh_dianc/pages/logs/logs",
+                "text": "我的",
+                "iconPath": "zh_dianc/pages/images/wode@2x.png",
+                "selectedIconPath": "zh_dianc/pages/images/wode-fill@2x.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 10000,
+        "downloadFile": 10000
+    }
+}

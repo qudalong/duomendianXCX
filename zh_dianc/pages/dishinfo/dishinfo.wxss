@@ -1,0 +1,62 @@
+.dishinfo {
+    width: 100%;
+}
+
+.dishinfo image {
+    width: 100%;
+    height: 700rpx;
+}
+
+.dishinfo_box {
+    padding: 20rpx 50rpx;
+}
+
+.dishinfo_name {
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 10rpx;
+}
+
+.dishinfo_sale {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.dishinfo_money {
+    font-size: 40rpx;
+    color: #34AAFF;
+    border-bottom: 1rpx solid #e5e5e5;
+    padding-bottom: 10rpx;
+}
+
+.dishinfo_flex {
+    display: flex;
+    align-items: center;
+}
+
+.dishinfo_left {
+    margin-left: 100rpx;
+}
+
+.dishinfo_intu {
+    font-size: 26rpx;
+    color: #342C29;
+}
+
+.dishinfo_scri {
+    font-size: 34rpx;
+    color: #333;
+    margin-top: 20rpx;
+}
+
+.dishinfo_scri2 {
+    font-size: 24rpx;
+    color: #333;
+    margin-top: 10rpx;
+}
+
+.dishinfo_prim {
+    font-size: 22rpx;
+    color: #999;
+    margin-bottom: 20rpx;
+}

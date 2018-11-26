@@ -1,0 +1,97 @@
+<view class="font">
+    <view class="list">
+        <image class="list_img" src="{{imglink}}{{dnddinfo.store.logo}}"></image>
+        <form bindsubmit="formSubmit" reportSubmit="true">
+            <view class="list_culom" wx:if="{{dnddinfo.order.dn_state=='1'}}">
+                <view class="list_time" wx:if="{{ptxx.dc_name!=''}}">{{ptxx.dc_name}}订单</view>
+                <view class="list_time" wx:else>堂内点餐</view>
+                <view class="list_user">商家正在备货中，请耐心等候</view>
+                <view class="list_comple">点菜成功</view>
+                <view class="list_cancel">
+                    <button bindtap="onPay" class="list_surplus1" formType="submit">立即支付</button>
+                    <button bindtap="chzf" class="list_surplus">餐后支付</button>
+                </view>
+            </view>
+        </form>
+        <view class="list_culom" wx:if="{{dnddinfo.order.dn_state=='2'||dnddinfo.order.dn_state=='4'}}">
+            <view class="list_time" wx:if="{{ptxx.dc_name!=''}}">{{ptxx.dc_name}}订单</view>
+            <view class="list_time" wx:else>堂内点餐</view>
+            <view class="list_user">感谢您对本店的支持，欢迎下次光临！</view>
+            <view class="list_comple">已完成</view>
+            <view class="list_cancel">
+                <button bindtap="zlyd" class="list_surplus1" data-dnddid="{{dnddinfo.order.id}}">再来一单</button>
+                <button bindtap="pingjia" class="list_surplus" data-dnddid="{{dnddinfo.order.id}}" wx:if="{{dnddinfo.order.dn_state=='2'}}">评价得积分</button>
+                <button class="list_surplus" wx:if="{{dnddinfo.order.dn_state=='4'}}">已评价</button>
+            </view>
+        </view>
+        <view class="list_culom" wx:if="{{dnddinfo.order.dn_state=='3'}}">
+            <view class="list_time" wx:if="{{ptxx.dc_name!=''}}">{{ptxx.dc_name}}订单</view>
+            <view class="list_time" wx:else>堂内点餐</view>
+            <view class="list_user">感谢您对本店的支持，欢迎下次光临！</view>
+            <view class="list_comple">已取消</view>
+            <view class="list_cancel">
+                <button bindtap="zlyd" class="list_surplus1" data-dnddid="{{dnddinfo.order.id}}">再来一单</button>
+                <button bindtap="lxsj" class="list_surplus" data-dnddtel="{{dnddinfo.store.tel}}">联系商家</button>
+            </view>
+        </view>
+    </view>
+    <view class="list_banner">
+        <view bindtap="index" class="list_one flex">
+            <view class="list_onelogo">
+                <image class="list_oneimg" src="{{imglink}}{{dnddinfo.store.logo}}"></image>
+                <view>{{dnddinfo.store.name}}</view>
+            </view>
+            <image class="list_orrow" src="../../images/Path@2x.png"></image>
+        </view>
+        <view class="order_info">
+            <view class="order_lei flex">
+                <text>类型</text>
+                <text wx:if="{{ptxx.dc_name!=''}}">{{ptxx.dc_name}}</text>
+                <text wx:else>堂内</text>
+            </view>
+            <view class="order_lei flex">
+                <text>订单号</text>
+                <text>{{dnddinfo.order.order_num}}</text>
+            </view>
+            <view class="order_lei flex">
+                <text>下单时间</text>
+                <text>{{dnddinfo.order.time}}</text>
+            </view>
+            <view class="order_lei flex" style="border:none;">
+                <text>支付方式</text>
+                <text wx:if="{{dnddinfo.order.is_yue=='1'}}">余额支付</text>
+                <text wx:if="{{dnddinfo.order.is_yue=='2'}}">微信支付</text>
+                <text wx:if="{{dnddinfo.order.is_yue=='0'}}">餐后支付</text>
+                <text wx:if="{{dnddinfo.order.is_yue=='3'}}">积分支付</text>
+            </view>
+        </view>
+        <view class="order_info">
+            <view class="order_lei flex">
+                <text>桌号类型</text>
+                <text>{{dnddinfo.order.table_name_type}}</text>
+            </view>
+            <view class="order_lei flex">
+                <text>桌号</text>
+                <text>{{dnddinfo.order.table_name}}</text>
+            </view>
+            <view class="order_lei flex" wx:for="{{dnddinfo.good}}">
+                <text style="width:400rpx;">{{item.name}}</text>
+                <view>
+                    <text class="order_num">×{{item.number}}</text>
+                    <text>¥ {{item.money}}</text>
+                </view>
+            </view>
+            <view class="order_lei flex" wx:if="{{dnddinfo.order.note!=''}}">
+                <text style="width:150rpx;">备注</text>
+                <text>{{dnddinfo.order.note}}</text>
+            </view>
+            <view class="order_lei flex">
+                <view>优惠</view>
+                <view class="order_money" wx:if="{{dnddinfo.order.preferential!=''}}">-¥{{dnddinfo.order.preferential}}</view>
+                <view wx:else>无</view>
+            </view>
+            <view class="order_money order_lei order_shifu">实付 ¥ {{dnddinfo.order.money}}</view>
+        </view>
+    </view>
+    <view></view>
+</view>

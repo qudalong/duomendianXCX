@@ -1,0 +1,111 @@
+page {
+    background: #F5F5F5;
+}
+
+.wallet {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.cash {
+    background-color: white;
+    margin-top: 20rpx;
+    padding: 0rpx 20rpx;
+}
+
+.cash_title {
+    font-size: 28rpx;
+    color: #333;
+    width: 100%;
+    height: 90rpx;
+    border-bottom: 1rpx solid #d5d5d5;
+    line-height: 90rpx;
+}
+
+.money {
+    margin-left: 50rpx;
+    color: black;
+}
+
+.cash_money {
+    font-size: 34rpx;
+    color: #333;
+    margin-top: 10rpx;
+}
+
+.cash_inp {
+    border: none;
+    height: 70rpx;
+    margin-left: 50rpx;
+}
+
+.tijiao {
+    color: white;
+    font-size: 30rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 6rpx;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 40rpx;
+    background-color: #43B1FF;
+}
+
+.list {
+    margin-top: 20rpx;
+    background-color: white;
+    padding: 0rpx 20rpx;
+    height: 90rpx;
+}
+
+.listimg {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.trade {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.addright {
+    width: 20rpx;
+    height: 30rpx;
+    margin-left: 20rpx;
+}
+
+.czhd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 26rpx;
+    color: #666;
+}
+
+.czhd view {
+    line-height: 90rpx;
+    text-align: right;
+}
+
+.czhd text {
+    color: #f44444;
+    margin: 0 10rpx;
+}
+
+.czhd1 {
+    border-top: 1rpx solid #d5d5d5;
+    background: #fff;
+    padding: 20rpx;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.czhd1 text {
+    color: #f44444;
+    margin: 0 10rpx;
+}
+
+.show {
+    transform: rotate(90deg);
+}

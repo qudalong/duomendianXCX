@@ -1,0 +1,119 @@
+<form bindsubmit="formSubmit" reportSubmit="true">
+    <view class="font">
+        <view class="reserve">
+            <view class="flex reserve_type">
+                <view>选择日期</view>
+                <view class="reserve_date">
+                    <picker bindchange="bindDateChange" end="" mode="date" name="datepicker" start="{{date}}" value="{{date}}">
+                        <view class="picker reserve_sele">{{date}}</view>
+                    </picker>
+                    <image class="reserve_arrow" src="../images/huise@2x.png"></image>
+                </view>
+            </view>
+            <view class="flex reserve_type">
+                <view>预计到店时间</view>
+                <view class="reserve_date">
+                    <picker bindchange="bindTimeChange" end="21:01" mode="time" name="timepicker" start="09:01" value="{{time}}">
+                        <view class="picker">{{time}}</view>
+                    </picker>
+                    <image class="reserve_arrow" src="../images/huise@2x.png"></image>
+                </view>
+            </view>
+            <view class="">
+                <view class="flex reserve_type {{item.open?'kind-list__item-hd_show':''}}" style="border:none;">
+                    <view>选择桌位类型</view>
+                    <view class="reserve_date">
+                        <view class="reserve_tab">
+                            <picker bindchange="bindPickerChange" name="zwpicker" range="{{array}}" rangeKey="name" value="{{array[index]}}">
+                                <view class="picker reserve_sele" wx:if="{{array.length!=0}}">{{array[index].name}}-最低消费{{array[index].zd_cost}}</view>
+                                <view class="picker reserve_sele" wx:else>商家暂未添加桌位类型</view>
+                            </picker>
+                        </view>
+                        <image class="reserve_arrow" src="../images/huise@2x.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="reserve">
+            <view class="flex reserve_type">
+                <view>选择就餐人数</view>
+                <view class="reserve_date">
+                    <picker bindchange="bindjcrsChange" name="jcrs" range="{{jcrsarray}}" value="{{jcrsarray[jindex]}}">
+                        <view class="picker">{{jcrsarray[jindex]}}</view>
+                    </picker>
+                    <image class="reserve_arrow" src="../images/huise@2x.png"></image>
+                </view>
+            </view>
+            <view class="reserve_type reserve_man">
+                <view class="reserve_num">联系人</view>
+                <input class="reserve_inp" name="lxr" placeholder="请输入联系人称呼" placeholderStyle="color: #999;font-size: 30rpx;"></input>
+            </view>
+            <view class="reserve_type reserve_man" style="border:none;">
+                <view class="reserve_num">联系电话</view>
+                <input class="reserve_inp" name="tel" placeholder="请输入电话号码" placeholderStyle="color: #999;font-size: 30rpx;" type="number"></input>
+            </view>
+        </view>
+        <view class="reserve_marks reserve">
+            <view>备注</view>
+            <textarea class="reserve_text" name="beizhu" placeholder="请输入备注信息"></textarea>
+        </view>
+        <view class="footer">
+            <button formType="submit" style="background:{{color}}">立即预约</button>
+        </view>
+    </view>
+    <view bindtap="yczz" class="drawer_screen" wx:if="{{showModal}}"></view>
+    <view class="drawer_box" wx:if="{{showModal}}">
+        <view class="drawer_title">请选择支付方式</view>
+        <view class="weui-cells weui-cells_after-title">
+            <radio-group bindchange="radioChange" class="radio-group" name="radiogroup">
+                <label>
+                    <view class="weui-cell">
+                        <view class="zfimg">
+                            <image src="../images/weixin.png"></image>
+                        </view>
+                        <view class="weui-cell__bd">微信支付</view>
+                        <view class="weui-cell__ft">
+                            <radio checked="{{zffs==1}}" value="wxzf"></radio>
+                        </view>
+                    </view>
+                </label>
+                <label wx:if="{{ptkqyue&&sjkqyue}}">
+                    <view class="weui-cell" style="border-top:1rpx solid #e6e6e6;">
+                        <view class="zfimg">
+                            <image src="../images/qb.png"></image>
+                        </view>
+                        <view class="weui-cell__bd">余额支付
+              <text class="yetext">您的余额{{wallet}}</text>
+                        </view>
+                        <view class="weui-cell__ft">
+                            <radio checked="{{zffs==2}}" color="#34aaff" disabled="{{!(ptkqyue&&sjkqyue)}}" value="yezf"></radio>
+                        </view>
+                    </view>
+                </label>
+                <label wx:if="{{ptkqjf&&sjkqjf}}">
+                    <view class="weui-cell" style="border-top:1rpx solid #e6e6e6;">
+                        <view class="zfimg">
+                            <image src="../images/cost.png"></image>
+                        </view>
+                        <view class="weui-cell__bd">积分支付
+              <text class="yetext" style="color:#FF9700">您的积分{{total_score}}</text>
+                        </view>
+                        <view class="weui-cell__ft">
+                            <radio checked="{{zffs==3}}" color="#FF9700" disabled="{{!(ptkqjf&&sjkqjf)}}" value="jfzf"></radio>
+                        </view>
+                    </view>
+                </label>
+            </radio-group>
+        </view>
+        <view class="drawer_title1">您选择的{{zfwz}}<text wx:if="{{zffs==3}}">({{jf_proportion}}积分可抵1元)</text>
+        </view>
+        <button bindtap="qdzf" class="{{btntype}}" disabled="{{zfz}}">
+            <view wx:if="{{!zfz}}">确定支付
+        <text class="zftext">￥{{ydcost}}</text>
+            </view>
+            <view wx:if="{{zfz}}">
+                <text class="zfztext">支付中...</text>
+            </view>
+        </button>
+    </view>
+</form>

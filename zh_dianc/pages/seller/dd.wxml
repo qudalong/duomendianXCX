@@ -1,0 +1,40 @@
+<import src="template.wxml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+<view class="dqmd">
+    <image src="{{url}}{{store.logo}}"></image>
+    <view>当前门店:{{store.name}}</view>
+</view>
+<view class="main">
+    <navigator url="dd/wmdd">
+        <view class="ddbk" style="background-color:#6BBDEC">
+            <image class="ddimg" src="../images/wm.png" wx:if="{{store.wm_img==''}}"></image>
+            <image class="ddimg" src="{{url}}{{store.wm_img}}" wx:else></image>
+            <view class="ddwz1" wx:if="{{store.wm_name==''}}">外卖订单</view>
+            <view class="ddwz1" wx:else>{{store.wm_name}}订单</view>
+        </view>
+    </navigator>
+    <navigator url="dd/tndd">
+        <view class="ddbk" style="background-color:#FF7575">
+            <image class="ddimg" src="../images/dc.png" wx:if="{{store.dn_img==''}}"></image>
+            <image class="ddimg" src="{{url}}{{store.dn_img}}" wx:else></image>
+            <view class="ddwz2" wx:if="{{store.dn_name==''}}">店内订单</view>
+            <view class="ddwz2" wx:else>{{store.dn_name}}订单</view>
+        </view>
+    </navigator>
+    <navigator url="dd/yddd">
+        <view class="ddbk" style="background-color:#3CAB8D">
+            <image class="ddimg" src="../images/yd.png" wx:if="{{store.yy_img==''}}"></image>
+            <image class="ddimg" src="{{url}}{{store.yy_img}}" wx:else></image>
+            <view class="ddwz3" wx:if="{{store.yy_name==''}}">预定订单</view>
+            <view class="ddwz3" wx:else>{{store.yy_name}}订单</view>
+        </view>
+    </navigator>
+    <navigator url="dd/dmfdd">
+        <view class="ddbk" style="background-color:#B8A4F2">
+            <image class="ddimg" src="../images/dmf.png" wx:if="{{store.sy_img==''}}"></image>
+            <image class="ddimg" src="{{url}}{{store.sy_img}}" wx:else></image>
+            <view class="ddwz4" wx:if="{{store.sy_name==''}}">当面付订单</view>
+            <view class="ddwz4" wx:else>{{store.sy_name}}订单</view>
+        </view>
+    </navigator>
+</view>

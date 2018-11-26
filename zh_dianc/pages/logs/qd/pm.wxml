@@ -1,0 +1,29 @@
+<view class="page1">
+    <view class="head"></view>
+    <view class="bd">
+        <view>
+            <text style="font-size:32rpx;" wx:if="{{userinfo.day!='0'}}">第<text style="font-size:45rpx;">{{pm}}</text>名</text>
+            <text wx:else>暂无排名</text>
+        </view>
+        <view class="bdimg">
+            <image src="{{userinfo.img}}"></image>
+            <view>
+                <text>{{userinfo.name}}</text>
+                <text style="font-size:28rpx;">{{userinfo.total_score}}积分</text>
+            </view>
+        </view>
+        <view>签到{{userinfo.day}}天</view>
+    </view>
+    <view class="pmlist">
+        <view class="pm {{item.id==userinfo.id?'xz':''}}" wx:for="{{rank}}">
+            <view class="pmhd">{{index+1}}</view>
+            <image src="{{item.img}}"></image>
+            <view class="pmbd {{item.id==userinfo.id?'xztext':''}}">{{item.name}}</view>
+            <view class="pmft">签到{{item.day}}天</view>
+        </view>
+    </view>
+    <view class="kong">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>

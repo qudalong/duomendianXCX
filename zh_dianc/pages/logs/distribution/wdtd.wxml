@@ -1,0 +1,48 @@
+<view class="list_header">
+    <view bindtap="tabClick" class="list_title {{activeIndex==index?'default':'selsect'}}" id="{{index}}" wx:for="{{tabs}}">
+        <view>{{item}}</view>
+        <view class="list_border" hidden="{{activeIndex!=index}}" style="background-color:#34aaff;"></view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=0}}">
+    <view class="list_imgbk2" hidden="{{yj.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时没有一级团队哦！</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" wx:for="{{yj}}">
+            <view class="weui-cell__hd">
+                <image class="himg" src="{{item.img}}"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <view>{{item.name}}</view>
+                <view class="sj">注册时间：{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="kong" hidden="{{yj.length==0}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=1}}">
+    <view class="list_imgbk2" hidden="{{ej.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时没有一级团队哦！</view>
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell" wx:for="{{ej}}">
+            <view class="weui-cell__hd">
+                <image class="himg" src="{{item.img}}"></image>
+            </view>
+            <view class="weui-cell__bd">
+                <view>{{item.name}}</view>
+                <view class="sj">注册时间：{{item.time}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="kong" hidden="{{ej.length==0}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>

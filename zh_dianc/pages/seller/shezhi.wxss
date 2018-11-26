@@ -1,0 +1,27 @@
+@import "template.wxss";
+
+page {
+    background-color: #f5f5f5;
+}
+
+.weui-cells_after-title {
+    margin-top: 1em;
+}
+
+.weui-cell {
+    font-size: 28rpx;
+}
+
+.weui-btn-area {
+    margin: 2em 1.5em;
+}
+
+.weui-btn-area button {
+    font-size: 32rpx;
+}
+
+.weui-cell__bd {
+    font-size: 26rpx;
+    margin-left: 30rpx;
+    color: #999;
+}

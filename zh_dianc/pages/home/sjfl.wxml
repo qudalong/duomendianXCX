@@ -1,0 +1,273 @@
+<scroll-view bindscrolltolower="sljz" class="films" scrollY="true" style="height:{{scrollHeight}}px">
+    <view class="recommed">
+        <view class="paixu">
+            <view bindtap="tabClick" class="{{activeIndex==index?'selected':'default'}}" id="{{index}}" wx:for="{{listarr}}" wx:key="*this">{{item}}
+          </view>
+        </view>
+        <view class="jzz" hidden="{{qqsj}}">
+            <image class="Rotation" src="../images/jzz.png"></image>
+            <view>加载中...</view>
+        </view>
+        <view hidden="{{activeIndex!=0}}">
+            <block wx:if="{{qqsj}}">
+                <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{tjstorelist.length!=0}}" wx:for="{{tjstorelist}}">
+                    <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                    <view class="recommed_content" style="flex:1">
+                        <view class="recommed_title">
+                            <view class="title_right">{{item.name}}</view>
+                        </view>
+                        <view class="recommed_title">
+                            <view class="pingjia_fenshu3">
+                                <view class="kximg">
+                                    <image src="../images/i-star.png"></image>
+                                </view>
+                                <view class="sximg" style="width: {{item.score*20}}%">
+                                    <image src="../images/i-stars.png"></image>
+                                </view>
+                            </view>
+                            <view class="pingfen">{{item.score}}</view>
+                            <view class="recommed_midel">月售{{item.sales}}单</view>
+                        </view>
+                        <view class="recommed_title recommed_end">
+                            <view class="border_right">￥{{item.start_at}}起送</view>
+                            <view class="border_right1">配送费￥{{item.freight}}</view>
+                        </view>
+                    </view>
+                    <view class="recommed_right">
+                        <view class="recommed_bao">保</view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                            <view>准时达</view>
+                            <view>达达配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                            <view>准时达</view>
+                            <view>商家配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                            <view>准时达</view>
+                            <view>UU跑腿</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                            <view>准时达</view>
+                            <view>人人派送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                            <view>准时达</view>
+                            <view>快服务</view>
+                        </view>
+                        <view class="recommed_mi">
+                            <view>离你{{item.aa}}</view>
+                            <view></view>
+                            <view>{{item.sd_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="jzz" hidden="{{mygd}}">
+                    <image class="Rotation" src="../images/jzz.png"></image>
+                    <view>加载中...</view>
+                </view>
+                <view class="kong" wx:if="{{tjstorelist.length==0}}">
+                    <image src="../images/wushuju.png"></image>
+                    <view>此分类暂无数据</view>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{activeIndex!=1}}">
+            <block wx:if="{{qqsj}}">
+                <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{xlstorelist.length!=0}}" wx:for="{{xlstorelist}}">
+                    <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                    <view class="recommed_content" style="flex:1">
+                        <view class="recommed_title">
+                            <view class="title_right">{{item.name}}</view>
+                        </view>
+                        <view class="recommed_title">
+                            <view class="pingjia_fenshu3">
+                                <view class="kximg">
+                                    <image src="../images/i-star.png"></image>
+                                </view>
+                                <view class="sximg" style="width: {{item.score*20}}%">
+                                    <image src="../images/i-stars.png"></image>
+                                </view>
+                            </view>
+                            <view class="pingfen">{{item.score}}</view>
+                            <view class="recommed_midel">月售{{item.sales}}单</view>
+                        </view>
+                        <view class="recommed_title recommed_end">
+                            <view class="border_right">￥{{item.start_at}}起送</view>
+                            <view class="border_right1">配送费￥{{item.freight}}</view>
+                        </view>
+                    </view>
+                    <view class="recommed_right">
+                        <view class="recommed_bao">保</view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                            <view>准时达</view>
+                            <view>达达配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                            <view>准时达</view>
+                            <view>商家配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                            <view>准时达</view>
+                            <view>UU跑腿</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                            <view>准时达</view>
+                            <view>人人派送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                            <view>准时达</view>
+                            <view>快服务</view>
+                        </view>
+                        <view class="recommed_mi">
+                            <view>离你{{item.aa}}</view>
+                            <view></view>
+                            <view>{{item.sd_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="jzz" hidden="{{mygd}}">
+                    <image class="Rotation" src="../images/jzz.png"></image>
+                    <view>加载中...</view>
+                </view>
+                <view class="kong" wx:if="{{xlstorelist.length==0}}">
+                    <image src="../images/wushuju.png"></image>
+                    <view>此分类暂无数据</view>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{activeIndex!=2}}">
+            <block wx:if="{{qqsj}}">
+                <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{pfstorelist.length!=0}}" wx:for="{{pfstorelist}}">
+                    <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                    <view class="recommed_content" style="flex:1">
+                        <view class="recommed_title">
+                            <view class="title_right">{{item.name}}</view>
+                        </view>
+                        <view class="recommed_title">
+                            <view class="pingjia_fenshu3">
+                                <view class="kximg">
+                                    <image src="../images/i-star.png"></image>
+                                </view>
+                                <view class="sximg" style="width: {{item.score*20}}%">
+                                    <image src="../images/i-stars.png"></image>
+                                </view>
+                            </view>
+                            <view class="pingfen">{{item.score}}</view>
+                            <view class="recommed_midel">月售{{item.sales}}单</view>
+                        </view>
+                        <view class="recommed_title recommed_end">
+                            <view class="border_right">￥{{item.start_at}}起送</view>
+                            <view class="border_right1">配送费￥{{item.freight}}</view>
+                        </view>
+                    </view>
+                    <view class="recommed_right">
+                        <view class="recommed_bao">保</view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                            <view>准时达</view>
+                            <view>达达配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                            <view>准时达</view>
+                            <view>商家配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                            <view>准时达</view>
+                            <view>UU跑腿</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                            <view>准时达</view>
+                            <view>人人派送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                            <view>准时达</view>
+                            <view>快服务</view>
+                        </view>
+                        <view class="recommed_mi">
+                            <view>离你{{item.aa}}</view>
+                            <view></view>
+                            <view>{{item.sd_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="jzz" hidden="{{mygd}}">
+                    <image class="Rotation" src="../images/jzz.png"></image>
+                    <view>加载中...</view>
+                </view>
+                <view class="kong" wx:if="{{pfstorelist.length==0}}">
+                    <image src="../images/wushuju.png"></image>
+                    <view>此分类暂无数据</view>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{activeIndex!=3}}">
+            <block wx:if="{{qqsj}}">
+                <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{jlstorelist.length!=0}}" wx:for="{{jlstorelist}}">
+                    <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                    <view class="recommed_content" style="flex:1">
+                        <view class="recommed_title">
+                            <view class="title_right">{{item.name}}</view>
+                        </view>
+                        <view class="recommed_title">
+                            <view class="pingjia_fenshu3">
+                                <view class="kximg">
+                                    <image src="../images/i-star.png"></image>
+                                </view>
+                                <view class="sximg" style="width: {{item.score*20}}%">
+                                    <image src="../images/i-stars.png"></image>
+                                </view>
+                            </view>
+                            <view class="pingfen">{{item.score}}</view>
+                            <view class="recommed_midel">月售{{item.sales}}单</view>
+                        </view>
+                        <view class="recommed_title recommed_end">
+                            <view class="border_right">￥{{item.start_at}}起送</view>
+                            <view class="border_right1">配送费￥{{item.freight}}</view>
+                        </view>
+                    </view>
+                    <view class="recommed_right">
+                        <view class="recommed_bao">保</view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                            <view>准时达</view>
+                            <view>达达配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                            <view>准时达</view>
+                            <view>商家配送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                            <view>准时达</view>
+                            <view>UU跑腿</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                            <view>准时达</view>
+                            <view>人人派送</view>
+                        </view>
+                        <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                            <view>准时达</view>
+                            <view>快服务</view>
+                        </view>
+                        <view class="recommed_mi">
+                            <view>离你{{item.aa}}</view>
+                            <view></view>
+                            <view>{{item.sd_time}}</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="jzz" hidden="{{mygd}}">
+                    <image class="Rotation" src="../images/jzz.png"></image>
+                    <view>加载中...</view>
+                </view>
+                <view class="kong" wx:if="{{jlstorelist.length==0}}">
+                    <image src="../images/wushuju.png"></image>
+                    <view>此分类暂无数据</view>
+                </view>
+            </block>
+        </view>
+        <view class="jzwb" wx:if="{{jzwb}}">
+            <view class="hx"></view>
+            <view class="wz">加载完毕</view>
+            <view class="hx"></view>
+        </view>
+    </view>
+</scroll-view>

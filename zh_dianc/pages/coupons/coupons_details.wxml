@@ -1,0 +1,49 @@
+<view class="font info">
+    <view class="info_header" style="background:{{color}}">
+        <view class="info_title">
+            <view class="info_top" style="background:{{color}}">{{coupons.name}}</view>
+            <view class="info_middel">
+                <text class="text_small">¥</text>
+                <text class="text_big">{{coupons.preferential}}</text>
+            </view>
+            <view class="info_term" style="background:{{color}}">有效期：{{coupons.start_time}}至{{coupons.end_time}}</view>
+        </view>
+    </view>
+    <view class="info_bottom" style="border-top:10rpx dotted {{color}}">
+        <view class="info_banner">{{coupons.store_name}}{{coupons.name}}使用说明</view>
+        <view class="info_limit">
+            <view class="info_user">使用限制</view>
+            <view class="info_flex">
+                <view class="cu_label" style="background:{{color}}"></view>
+                <view class="label" wx:if="{{coupons.conditions!=null}}">每人限领一次 满{{coupons.conditions}}可用</view>
+                <view wx:if="{{coupons.conditions==null}}">每人限领一次 没有使用要求</view>
+            </view>
+        </view>
+        <view class="info_limit">
+            <view class="info_user">有效期限</view>
+            <view class="info_flex">
+                <view class="cu_label" style="background:{{color}}"></view>
+                <view>{{coupons.start_time}}至{{coupons.end_time}}</view>
+            </view>
+        </view>
+        <view class="info_limit">
+            <view class="info_user">使用范围</view>
+            <view class="info_flex">
+                <view class="cu_label" style="background:{{color}}"></view>
+                <view wx:if="{{coupons_type==1}}">仅限外卖点餐使用</view>
+                <view wx:if="{{coupons_type==2}}">仅限店内点餐使用</view>
+                <view wx:if="{{coupons_type==3}}">店内点餐和外卖点餐都可用</view>
+            </view>
+        </view>
+        <view class="info_limit1">
+            <view class="info_user">使用说明</view>
+            <view class="info_flex">
+                <view class="cu_label" style="background:{{color}}"></view>
+                <view class="label" wx:if="{{coupons.instruction!=''}}">{{coupons.instruction}}</view>
+                <view wx:if="{{coupons.instruction==''}}">此券无使用说明</view>
+            </view>
+        </view>
+    </view>
+    <view class="label_tu label_left"></view>
+    <view class="label_tu label_right"></view>
+</view>

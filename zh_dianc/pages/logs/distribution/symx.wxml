@@ -1,0 +1,14 @@
+<view class="integral" wx:for="{{symx}}">
+    <image src="{{url}}{{link_logo}}" wx:if="{{item.son_id=='0'}}"></image>
+    <image src="{{item.img}}" wx:else></image>
+    <view class="integral-left">
+        <view wx:if="{{item.son_id=='0'}}">{{pt_name}}</view>
+        <view wx:else>{{item.name}}</view>
+        <view>{{item.time}}</view>
+    </view>
+    <view class="integral-right">
+        <text style="color:#6AC20B">+{{item.money}}<text class="integral-right1">元</text>
+        </text>
+    </view>
+</view>
+<view class="mygd">没有更多了哦~</view>

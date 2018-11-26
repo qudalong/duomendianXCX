@@ -1,0 +1,450 @@
+<view class="shop font">
+    <view class="shop_header" style="background:{{color}}">
+        <view class="dingwei" wx:if="{{types==2}}"></view>
+        <view class="shop_header1">
+            <view bindtap="navInfo" class="sh_img">
+                <image mode="aspectFill" src="{{url}}{{store.logo}}" style="width:150rpx;height:150rpx;"></image>
+            </view>
+            <view class="sh_text">
+                <view class="sh_text3">
+                    <view class="sh_title">
+                        <view class="sh_text1">{{store.name}}</view>
+                        <view class="sh_title1">
+                            <text wx:if="{{types==2}}">￥{{store.start_at}}元起送</text>
+                            <text wx:if="{{types==2}}"> | 配送费：¥{{store.freight}} | </text>
+                            <text wx:if="{{store.ps_mode==1&&types==2}}"> 配送服务：达达专送</text>
+                            <text wx:if="{{store.ps_mode==2&&types==2}}"> 配送服务：商家配送</text>
+                            <text wx:if="{{store.ps_mode==3&&types==2}}"> 配送服务：UU跑腿</text>
+                            <text wx:if="{{store.ps_mode==4&&types==2}}"> 配送服务：人人派送</text>
+                            <text wx:if="{{store.ps_mode==5&&types==2}}"> 配送服务：快服务</text>
+                            <view class="dingwei" wx:if="{{types==1}}">
+                                <text>商家地址：{{store.address}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="sh_text2">
+          公告：{{store.announcement}}
+        </view>
+            </view>
+        </view>
+        <view class="shop_header2">
+            <view class="shop_header3">
+                <swiper autoplay="true" circular="true" interval="2000" style="height:50rpx;" vertical="true">
+                    <swiper-item wx:if="{{store.xyh_open=='1'}}">
+                        <view style="display:flex">
+                            <view class="shop_header4">首</view>
+                            <view>新用户下单立减{{store.xyh_money}}元(不与其它活动同享)</view>
+                        </view>
+                    </swiper-item>
+                    <swiper-item wx:if="{{mj.length!=0}}">
+                        <view class="mjhd">
+                            <text class="shop_header4" style="background-color:#EB747C">减</text>
+                            <text style="margin-right:10rpx;" wx:for="{{mj}}">满{{item.full}}减{{item.reduction}}</text>
+                        </view>
+                    </swiper-item>
+                </swiper>
+            </view>
+            <view>{{hdnum}}个活动</view>
+        </view>
+    </view>
+    <view class="banner">
+        <view class="total">
+            <view class="toatal_head">
+                <view bindtap="selected1" class="toatal_head1 {{selected1?'selsect1':'default'}}" wx:if="{{types=='2'&&store.wm_name==''}}">
+          外卖
+          <view class="toatal_text1" hidden="{{hidden1}}" style="background-color: {{color}}"></view>
+                </view>
+                <view bindtap="selected1" class="toatal_head1 {{selected1?'selsect1':'default'}}" wx:if="{{types=='2'&&store.wm_name!=''}}">
+          {{store.wm_name}}
+          <view class="toatal_text1" hidden="{{hidden1}}" style="background-color: {{color}}"></view>
+                </view>
+                <view bindtap="selected1" class="toatal_head1 {{selected1?'selsect1':'default'}}" wx:if="{{types=='1'&&store.dn_name==''}}">
+          点菜
+          <view class="toatal_text1" hidden="{{hidden1}}" style="background-color: {{color}}"></view>
+                </view>
+                <view bindtap="selected1" class="toatal_head1 {{selected1?'selsect1':'default'}}" wx:if="{{types=='1'&&store.dn_name!=''}}">
+          {{store.dn_name}}
+          <view class="toatal_text1" hidden="{{hidden1}}" style="background-color: {{color}}"></view>
+                </view>
+                <view bindtap="selected2" class="toatal_head1 {{selected2?'selsect1':'default'}}">
+          评价
+          <view class="toatal_text1" hidden="{{hidden2}}" style="background-color: {{color}}"></view>
+                </view>
+                <view bindtap="selected3" class="toatal_head1 {{selected3?'selsect1':'default'}}">
+          详情
+          <view class="toatal_text1" hidden="{{hidden3}}" style="background-color: {{color}}"></view>
+                </view>
+            </view>
+            <view class="{{selected1?'show':'hide'}}">
+                <view bindtap="close" class="close rel" wx:if="{{rest==1}}">
+                    <view class="ba ab hide{{showView?'show':''}}"></view>
+                    <view class="close_modal ab udlr hide{{showView?'show':''}}">
+                        <view>商家休息了</view>
+                        <view class="classname rel">
+                            <button class="ab">关闭</button>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="close" class="close rel" wx:if="{{close==true}}">
+                    <view class="ba ab hide{{showView?'show':''}}"></view>
+                    <view class="close_modal ab udlr hide{{showView?'show':''}}">
+                        <view class="classname">商家已经打烊啦</view>
+                        <view class="classname rel">
+                            <button class="ab">关闭</button>
+                        </view>
+                    </view>
+                </view>
+                <view class="goods">
+                    <view class="menu-wrapper">
+                        <scroll-view scrollY="true" style="height:{{height}}rpx;padding-bottom:10rpx;">
+                            <view bindtap="selectMenu" class="menu-item border-1px {{index==catalogSelect?'active':'selsect'}}" data-id="{{item.id}}" data-item-index="{{index}}" wx:if="{{item.goods.length!=0}}" wx:for="{{dishes}}" wx:key="{{item.value}}">
+                                <view class="goods_border" style="background:{{color}}" wx:if="{{index==catalogSelect}}"></view>
+                                <view class="text">
+                  {{item.type_name}}
+                </view>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <scroll-view scrollY class="foods-wrapper" scrollIntoView="{{toView}}" style="height:{{height}}rpx;padding-bottom:10rpx;">
+                        <view class="food-list food-list-hook" data-id="{{item.id}}" wx:if="{{item.goods.length!=0}}" wx:for="{{dishes}}" wx:for-index="parentIndex" wx:key="{{item.value}}">
+                            <view id="order{{parentIndex}}">
+                                <view class="title">{{item.type_name}}</view>
+                                <view class="food-item" data-food="{{food}}" wx:for="{{item.goods}}" wx:for-item="food" wx:key="{{item.value}}">
+                                    <view class="icon">
+                                        <image bindtap="clickImage" class="{{food.open?'bomb_show':''}}" data-id="{{food.id}}" id="{{food.id}}" src="{{url}}{{food.img}}" style="width: 130rpx;height: 130rpx;"></image>
+                                    </view>
+                                    <view class="content">
+                                        <view class="name elipsis">{{food.name}}</view>
+                                        <view class="sh_content4">{{food.rice}}</view>
+                                        <view class="extra" style="margin-top:5rpx;">
+                                            <text class="count" wx:if="{{food.num<='0'}}">本商品暂无库存</text>
+                                            <text class="count" wx:if="{{food.num>'0'}}">月销量{{food.xs_num+food.sit_ys_num}}份</text>
+                                        </view>
+                                        <view>
+                                            <text class="sh_content6">¥</text>
+                                            <text class="sh_content7" wx:if="{{types==2}}">{{food.wm_money}}</text>
+                                            <text class="sh_content7" wx:if="{{types==1}}">{{food.money}}</text>
+                                        </view>
+                                        <view class="cartControl-wrapper">
+                                            <view class="cartControl">
+                                                <view wx:if="{{food.num>'0'}}">
+                                                    <view wx:if="{{rest!=1}}">
+                                                        <view name="fade">
+                                                            <view wx:if="{{food.one<food.num}}">
+                                                                <view bindtap="decreaseCart" class="cart-decrease" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" wx:if="{{food.one>0}}">
+                                                                    <view class="inner iconfont icon-jian" style="font-size:48rpx;color:{{color}};"></view>
+                                                                </view>
+                                                                <view class="cart-count" wx:if="{{food.one>0}}">{{food.one}}</view>
+                                                                <view bindtap="addCart" class=" iconfont icon-jia cart-add " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" style="color:{{color}}; "></view>
+                                                            </view>
+                                                            <view wx:if="{{food.one>=food.num}}">
+                                                                <view bindtap="decreaseCart" class="cart-decrease" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" wx:if="{{food.one>0}}">
+                                                                    <view class="inner iconfont icon-jian" style="font-size:48rpx;color:{{color}};"></view>
+                                                                </view>
+                                                                <view class="cart-count" wx:if="{{food.one>0}}">{{food.num}}</view>
+                                                                <view bindtap="zwkc" class="iconfont icon-jia cart-add " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" style="color:{{color}}; "></view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                    <view wx:if="{{rest==1}}">
+                                                        <view name="fade">
+                                                            <view wx:if="{{food.one<food.num}}">
+                                                                <view class="cart-decrease" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" wx:if="{{food.one>0}}">
+                                                                    <view class="inner iconfont icon-jian" style="font-size:48rpx;color:{{color}};"></view>
+                                                                </view>
+                                                                <view class="cart-count" wx:if="{{food.one>0}}">{{food.one}}</view>
+                                                                <view bindtap="close" class=" iconfont icon-jia cart-add " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" style="color:{{color}}; "></view>
+                                                            </view>
+                                                            <view wx:if="{{food.one>=food.num}}">
+                                                                <view class="cart-decrease" data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" wx:if="{{food.one>0}}">
+                                                                    <view class="inner iconfont icon-jian" style="font-size:48rpx;color:{{color}};"></view>
+                                                                </view>
+                                                                <view class="cart-count" wx:if="{{food.one>0}}">{{food.num}}</view>
+                                                                <view class=" iconfont icon-jia cart-add " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" style="color:{{color}};"></view>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+                                                <view wx:if="{{food.num<='0'}}">
+                                                    <view name="fade">
+                                                        <view bindtap="decreaseCart" class="cart-decrease" data-item-index="{{index}}" wx:if="{{food.one>0}}">
+                                                            <view class="inner iconfont icon-jian" style="font-size:48rpx;color:{{color}};"></view>
+                                                        </view>
+                                                        <view class="cart-count" wx:if="{{food.one>0}}">{{food.one}}</view>
+                                                        <view bindtap="zwkc" class=" iconfont icon-jia cart-add " data-item-index="{{index}}" data-parentIndex="{{parentIndex}}" style="color:{{color}}; "></view>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                    <view>
+                        <view id="order{{parentIndex}}">
+                            <view class="shopCart">
+                                <view class="tankuang" hidden="{{changeHidden}}">
+                                    <view bindtap="change" class="cover" style="opacity: 0.5">nn</view>
+                                    <view class="gwcmj" wx:if="{{mj.length!=0}}">
+                                        <view class="manjian" style="margin-right:20rpx;" wx:for="{{mj}}">满{{item.full}}减{{item.reduction}}</view>
+                                    </view>
+                                    <view class="manjian" wx:if="{{mj.length==0}}">商家暂未开启满减活动</view>
+                                    <view class="shangpin_bomb">
+                                        <view class="shangpin1" style="border-left:10rpx solid {{color}}">已选商品</view>
+                                        <view bindtap="clear" class="sh_clear">清空</view>
+                                    </view>
+                                    <view class="splist">
+                                        <view class="shangpin" wx:if="{{item.num>0}}" wx:for="{{carArray}}" wx:for-index="gwcidx" wx:key="{{item.value}}">
+                                            <view class="shop_text3">{{item.name}}</view>
+                                            <view class="shop_type">
+                                                <view class="shop_text1">¥{{item.allmoney}}</view>
+                                                <view wx:if="{{rest!=1}}">
+                                                    <view class="bomb_add" name="fade">
+                                                        <block wx:if="{{item.num<item.kc}}">
+                                                            <view catchtap="decreaseShopCart" class="cart-decrease" data-ggindex="{{item.ggindex}}" data-gwcindex="{{gwcidx}}" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" style="display:inline-block;padding-right:0rpx;color:{{color}};">
+                                                                <view class="inner iconfont icon-jian" style="color:{{color}};font-size:24px;"></view>
+                                                            </view>
+                                                            <view class="cart-count" style="display:inline-block;padding-top:0rpx;width:20px;text-align:center;font-size:14px;">{{item.num}}</view>
+                                                            <view catchtap="addShopCart" class=" iconfont icon-jia cart-add " data-ggindex="{{item.ggindex}}" data-gwcindex="{{gwcidx}}" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" style="font-size:24px;color:{{color}}; padding:0;"></view>
+                                                        </block>
+                                                        <block wx:if="{{item.num>=item.kc}}">
+                                                            <view catchtap="decreaseShopCart" class="cart-decrease" data-ggindex="{{item.ggindex}}" data-gwcindex="{{gwcidx}}" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" style="display:inline-block;padding-right:0rpx;color:{{color}};">
+                                                                <view class="inner iconfont icon-jian" style="color:{{color}};font-size:24px;"></view>
+                                                            </view>
+                                                            <view class="cart-count" style="display:inline-block;padding-top:0rpx;width:20px;text-align:center;font-size:14px;">{{item.num}}</view>
+                                                            <view catchtap="zwkc" class=" iconfont icon-jia cart-add " data-ggindex="{{item.ggindex}}" data-gwcindex="{{gwcidx}}" data-item-index="{{item.index}}" data-parentIndex="{{item.parentIndex}}" style="font-size:24px;color:{{color}}; padding:0;"></view>
+                                                        </block>
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </view>
+                                    </view>
+                                    <view class="shangpin3" wx:if="{{totalbox>0}}">
+                                        <view wx:if="{{store.box_name!=''}}">{{store.box_name}}</view>
+                                        <view wx:else>餐盒费</view>
+                                        <view class="shangpin_text3">¥{{totalbox}}</view>
+                                    </view>
+                                </view>
+                                <view bindtap="change1" class="content">
+                                    <view class="content-left">
+                                        <view class="cart_img" style="background-color:{{color}}" wx:if="{{totalCount>0}}">
+                                            <image class="cart_img1" src="../images/gwc.png"></image>
+                                        </view>
+                                        <view class="cart_img" wx:else>
+                                            <image class="cart_img1" src="../images/konggwc.png"></image>
+                                        </view>
+                                        <view class="cart_num" style="background-color:{{color}}" wx:if="{{totalCount>0}}">{{totalCount}}</view>
+                                        <view class="shop_ygleft price highlight" wx:if="{{totalPrice>0}}">￥{{totalPrice}}</view>
+                                        <view class="cart_img2" wx:if="{{totalPrice<=0}}">未选购商品</view>
+                                        <view class="desc" wx:if="{{types==2}}">另需配送费￥{{store.freight}}元</view>
+                                    </view>
+                                    <view class="content-right" wx:if="{{rest==2&&types==2}}">
+                                        <view class="pay enough color" style="background:{{color}}" wx:if="{{totalPrice==0}}">
+                                            <view wx:if="{{start_at!=null}}">
+                                                <view catchtap="pay" style="background-color:#a0a0a0;color:white;" wx:if="{{time==1}}">￥{{start_at}}起送</view>
+                                                <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==2}}">商家暂未营业</view>
+                                                <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==3}}">商家暂未营业</view>
+                                            </view>
+                                        </view>
+                                        <view class="pay enough" wx:if="{{totalPrice>0}}">
+                                            <view catchtap="pay" style="background:{{color}}" wx:if="{{time==1}}">{{payDesc}}</view>
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==2}}">商家暂未营业</view>
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==3}}">商家暂未营业</view>
+                                        </view>
+                                    </view>
+                                    <view class="content-right" wx:if="{{rest==2&&types==1}}">
+                                        <view class="pay enough" wx:if="{{totalPrice==0}}">
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==1}}">还没有点菜哟</view>
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==2}}">商家还没开店</view>
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==3}}">商家已经关店</view>
+                                        </view>
+                                        <view catchtap="pay" class="pay enough" style="background:{{color}}" wx:if="{{totalPrice>0&&time==1&&!kt}}">
+                      去下单
+                    </view>
+                                        <view catchtap="ktpay" class="pay enough" style="background:{{color}}" wx:if="{{totalPrice>0&&time==1&&kt}}">
+                      此桌已开台
+                    </view>
+                                        <view class="pay enough" wx:if="{{totalPrice>0&&time!=1}}">
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==2}}">商家还没开店</view>
+                                            <view style="background-color:#a0a0a0;color:white;" wx:if="{{time==3}}">商家已经关店</view>
+                                        </view>
+                                    </view>
+                                    <view class="content-right" wx:if="{{rest==1&&types==2}}">
+                                        <view class="pay enough" style="background:#{{color}}">
+                                            <view style="background-color:#a0a0a0;color:white;">商家休息了</view>
+                                        </view>
+                                    </view>
+                                    <view class="content-right" wx:if="{{rest==1&&types==1}}">
+                                        <view class="pay enough" style="background:{{color}}">
+                                            <view style="background-color:#a0a0a0;color:white;">商家休息了</view>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view name="fade">
+                        <view bindtap="hideList" class="list-mask" wx:if="{{listShow}}"></view>
+                    </view>
+                </view>
+                <toast bindchange="toastChange" class="" hidden="{{toastHidden}}">
+          默认
+        </toast>
+            </view>
+            <view class="sh_pingjia6 {{selected2?'show':'hide'}}">
+                <view class="pinglun_kong" wx:if="{{ping.length<=0}}">
+                    <image src="../images/pinglun.png"></image>
+                    <view class="ping_nolist">暂时还没有任何评论哦！</view>
+                </view>
+                <view wx:if="{{ping.length>0}}">
+                    <view class="sh_pingjia">
+                        <view class="pingjia_score">
+                            <view class="pingjia_score1">{{score}}</view>
+                            <view class="pingjia_score2">综合评分</view>
+                        </view>
+                        <view class="pingjia_fenshu">
+                            <view class="pingjia_fenshu1 pingjia_fenshu5">
+                                <view class="pingjia_fenshu2">商家评分</view>
+                                <view class="pingjia_fenshu3" wx:if="{{score==1}}">
+                                    <image class="item" src="{{item.url}}" wx:for="{{star1}}" wx:key="{{item.value}}"></image>
+                                </view>
+                                <view class="pingjia_fenshu3" wx:if="{{score==2}}">
+                                    <image class="item" src="{{item.url}}" wx:for="{{star2}}" wx:key="{{item.value}}"></image>
+                                </view>
+                                <view class="pingjia_fenshu3" wx:if="{{score==3}}">
+                                    <image class="item" src="{{item.url}}" wx:for="{{star3}}" wx:key="{{item.value}}"></image>
+                                </view>
+                                <view class="pingjia_fenshu3" wx:if="{{score==4}}">
+                                    <image class="item" src="{{item.url}}" wx:for="{{star4}}" wx:key="{{item.value}}"></image>
+                                </view>
+                                <view class="pingjia_fenshu3" wx:if="{{score==5}}">
+                                    <image class="item" src="{{item.url}}" wx:for="{{star5}}" wx:key="{{item.value}}"></image>
+                                </view>
+                                <view class="pingjia_fenshu4">{{score}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="pingjia_num">
+                        <view class="pingjia_num1">点评：{{score}}分</view>
+                        <view class="pingjia_num2">
+                            <text>{{ping.length}}条到店评价</text>
+                        </view>
+                    </view>
+                    <view class="pingjia_ren" wx:for="{{ping}}" wx:key="{{item.value}}">
+                        <view class="pingjia_ren1">
+                            <image class="ren_img" src="{{item.user_img}}"></image>
+                            <view class="pingjia_ren2">
+                                <view class="pingjia_ren3">
+                                    <text>{{item.user_name}}</text>
+                                </view>
+                                <view class="pingjia_ren4">
+                                    <view class="pingjia_ren5" wx:if="{{item.score==1}}">
+                                        <image class="item" src="{{item.url}}" wx:for="{{star1}}" wx:key="{{item.value}}"></image>
+                                    </view>
+                                    <view class="pingjia_ren5" wx:if="{{item.score==2}}">
+                                        <image class="item" src="{{item.url}}" wx:for="{{star2}}" wx:key="{{item.value}}"></image>
+                                    </view>
+                                    <view class="pingjia_ren5" wx:if="{{item.score==3}}">
+                                        <image class="item" src="{{item.url}}" wx:for="{{star3}}" wx:key="{{item.value}}"></image>
+                                    </view>
+                                    <view class="pingjia_ren5" wx:if="{{item.score==4}}">
+                                        <image class="item" src="{{item.url}}" wx:for="{{star4}}" wx:key="{{item.value}}"></image>
+                                    </view>
+                                    <view class="pingjia_ren5" wx:if="{{item.score==5}}">
+                                        <image class="item" src="{{item.url}}" wx:for="{{star5}}" wx:key="{{item.value}}"></image>
+                                    </view>
+                                    <view class="pingjia_ren6">{{item.cerated_time}}</view>
+                                </view>
+                                <view class="pingjia_text">{{item.content}}</view>
+                                <view class="pingjia_text1" wx:if="{{item.reply!=''}}">商家回复：{{item.reply}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="{{selected3?'show':'hide'}}">
+                <view class="sh_info">
+                    <view class="sh_info1">
+                        <view class="sh_infotel flex">
+                            <view class="sh_infote2">
+                                <image src="../images/shijian@2x.png"></image>
+                                <text>营业时间：{{store.time}}-{{store.time2}}</text>
+                            </view>
+                            <view class="sh_infote3"></view>
+                        </view>
+                        <view catchtap="call_phone" class="sh_infotel flex">
+                            <view class="sh_infote2">
+                                <image src="../images/xiangqingdianhua@2x.png"></image>
+                                <text>{{store.tel}}</text>
+                            </view>
+                            <image class="sh_infoimg" src="../images/huise@2x.png"></image>
+                        </view>
+                        <view catchtap="tomap" class="sh_infotel flex">
+                            <view class="sh_infote2">
+                                <image src="../images/didian@2x.png"></image>
+                                <text>{{store.address}}</text>
+                            </view>
+                            <image class="sh_infoimg" src="../images/huise@2x.png"></image>
+                        </view>
+                        <view bindtap="tzsjhj" class="sh_infotel flex" data-sjid="{{store.id}}" style="border:none">
+                            <view class="sh_infote2">
+                                <image src="../images/huanjing.png"></image>
+                                <text>商家环境</text>
+                            </view>
+                            <image class="sh_infoimg" src="../images/huise@2x.png"></image>
+                        </view>
+                    </view>
+                    <view class="sh_info1">
+                        <view class="sh_infote8" wx:if="{{bqxx.is_psxx=='1'}}">
+                            <view class="sh_infote10">
+                                <image class="sh_infote6" src="../images/xianshang@2x.png"></image>
+                                <text>配送服务：</text>
+                                <view class="sh_infote4" wx:if="{{store.ps_mode==1}}">达达专送</view>
+                                <view class="sh_infote4" wx:if="{{store.ps_mode==2}}">商家配送</view>
+                                <view class="sh_infote4" wx:if="{{store.ps_mode==3}}">UU跑腿</view>
+                                <view class="sh_infote4" wx:if="{{store.ps_mode==4}}">人人派送</view>
+                                <text>提供高品质配送服务</text>
+                            </view>
+                            <view class="sh_infote9">
+                                <view class="sh_infote7" style="color:{{color}};border:1rpx solid {{color}}">送货快</view>
+                                <view class="sh_infote7" style="color:{{color}};border:1rpx solid {{color}}">准时到</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="info_huodong">
+                        <view class="sh_infote3" style="border-bottom:1rpx solid #e5e5e5;" wx:if="{{mj.length!=0}}">
+                            <view class="info_huodong1 info_huodong2">减</view>
+                            <view style="margin-right:20rpx;" wx:for="{{mj}}">满{{item.full}}减{{item.reduction}}</view>
+                        </view>
+                        <view class="sh_infote3" style="border-bottom:1rpx solid #e5e5e5;" wx:if="{{store.xyh_open=='1'}}">
+                            <view class="info_huodong1 info_huodong4">首</view>
+                            <view>新用户立减{{store.xyh_money}}元（在线支付专享）</view>
+                        </view>
+                        <view class="sh_infote3">
+                            <image class="info_huodong1" src="../images/weixin.png"></image>
+                            <view>该商家支持微信支付</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="drawer_screen" wx:if="{{showModal}}"></view>
+<view class="drawer_box" wx:if="{{showModal}}">
+    <view class="drawer_title">{{ggbt}}</view>
+    <view class="guige">规格：</view>
+    <view class="drawer_content">
+        <view bindtap="xzggClick" class="drawer_gg {{xzggindex==index?'drawer_on':''}}" id="{{index}}" wx:for="{{gg}}">{{item.name}}</view>
+    </view>
+    <view class="btn_ok">
+        <view class="btn_ok1">
+            <text>￥</text>{{gg[xzggindex].cost}}</view>
+        <view bindtap="xhl" class="btn_ok2" style="background:{{color}}">选好了</view>
+    </view>
+</view>
+<view bindtap="ycgg" class="drawer_img" wx:if="{{showModal}}">
+    <image src="../images/x.png"></image>
+</view>

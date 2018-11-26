@@ -1,0 +1,18 @@
+<view class="font">
+    <view class="dishinfo">
+        <image src="{{url}}{{dishesinfo.dishes.img}}"></image>
+    </view>
+    <view class="dishinfo_box">
+        <view class="dishinfo_name">{{dishesinfo.dishes.name}}</view>
+        <view class="dishinfo_flex">
+            <view class="dishinfo_sale">月售{{dishesinfo.dishes.sit_ys_num}}份</view>
+            <view class="dishinfo_sale dishinfo_left">剩余{{dishesinfo.dishes.num}}份</view>
+        </view>
+        <view class="dishinfo_money" wx:if="{{types==1}}">¥{{dishesinfo.dishes.money}}</view>
+        <view class="dishinfo_money" wx:if="{{types==2}}">¥{{dishesinfo.dishes.wm_money}}</view>
+        <view class="dishinfo_scri">商品描述</view>
+        <view class="dishinfo_prim">温馨提示：图片仅供参考，请以实物为准；高峰时段及恶劣天气，请提前下单</view>
+        <rich-text class="dishinfo_intu" nodes="{{dishesinfo.dishes.details}}"></rich-text>
+        <view class="dishinfo_scri2" wx:if="{{dishesinfo.dishes.details==''}}">本商品暂无描述</view>
+    </view>
+</view>

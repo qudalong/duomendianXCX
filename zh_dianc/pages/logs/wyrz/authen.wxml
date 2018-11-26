@@ -1,0 +1,73 @@
+<view class="font">
+    <view class="authen">
+        <view class="authen_header" wx:if="{{is_rz==4}}">
+            <icon size="25" type="info"></icon>
+            <view class="header_text">暂未申请</view>
+        </view>
+        <view class="authen_header" wx:if="{{is_rz==1}}">
+            <icon size="25" type="waiting"></icon>
+            <view class="header_text">正在审核中</view>
+        </view>
+        <view class="authen_header" wx:if="{{is_rz==2}}">
+            <icon size="25" type="success"></icon>
+            <view class="header_text">审核已通过</view>
+        </view>
+        <view class="authen_header" wx:if="{{is_rz==3}}">
+            <icon size="25" type="warn"></icon>
+            <view class="header_text">已被拒绝</view>
+        </view>
+        <view class="header_bot">入驻成为商家，抢占小程序市场！</view>
+    </view>
+    <view class="section">
+        <view class="section_header">
+            <image class="section_header_img" src="../../images/fangkuai.png" style="transform: rotateY(180deg);"></image>
+            <view class="section_header_text">平台优势</view>
+            <image class="section_header_img" src="../../images/fangkuai.png"></image>
+        </view>
+        <view class="section_footer">
+            <view class="section_one">
+                <image class="section_one_img" src="../../images/tixi.png"></image>
+                <view class="section_one_right">
+                    <view class="right_title">上线快</view>
+                    <view class="right_content">条件符合的情况下,2个工作日内即可完成审核开店营业。</view>
+                </view>
+            </view>
+            <view class="section_one">
+                <image class="section_one_img" src="../../images/xianjin.png"></image>
+                <view class="section_one_right">
+                    <view class="right_title">高品质</view>
+                    <view class="right_content">为了给消费者打造一个健康的本地生活服务平台，要求入驻商家必须证照齐全。</view>
+                </view>
+            </view>
+            <view class="section_one">
+                <image class="section_one_img" src="../../images/yaoqiu.png"></image>
+                <view class="section_one_right">
+                    <view class="right_title">大数据</view>
+                    <view class="right_content">利用大数据，准确定位目标消费人群，帮您提高订单量。</view>
+                </view>
+            </view>
+            <view class="section_one">
+                <image class="section_one_img" src="../../images/youxiao.png"></image>
+                <view class="section_one_right">
+                    <view class="right_title">全服务</view>
+                    <view class="right_content">强大的技术团队，后台管理系统，打造最优质的服务流程体验。</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="section_state2">
+        <view class="section_state">
+            <view class="section_header">
+                <image class="section_header_img" src="../../images/fangkuai.png" style="transform: rotateY(180deg);"></image>
+                <view class="section_header_text">常见问题</view>
+                <image class="section_header_img" src="../../images/fangkuai.png"></image>
+            </view>
+            <view class="section_two">
+                <rich-text nodes="{{cjwt}}" style="font-size:28rpx;color:#666"></rich-text>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view bindtap="select" class="footer_btn" wx:if="{{is_rz==3||is_rz==4}}">立即申请</view>
+    </view>
+</view>

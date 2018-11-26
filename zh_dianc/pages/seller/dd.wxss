@@ -1,0 +1,89 @@
+@import "template.wxss";
+
+page {
+    background-color: #f5f5f5;
+}
+
+.weui-cells_after-title {
+    margin-top: 1.2em;
+}
+
+.weui-cells {
+    font-size: 35rpx;
+}
+
+.weui-cell__hd image {
+    width: 80rpx;
+    height: 80rpx;
+    margin-right: 50rpx;
+}
+
+.weui-cell__ft_in-access:after {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.main {
+    margin: auto 30rpx;
+    padding: 100rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ddbk {
+    width: 280rpx;
+    height: 280rpx;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    margin: 20rpx 20rpx;
+    border-radius: 30rpx;
+    padding: 20rpx 10rpx;
+}
+
+.ddimg {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.ddwz1 {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.ddwz2 {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.ddwz3 {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.ddwz4 {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.dqmd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.dqmd image {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}

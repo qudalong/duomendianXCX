@@ -1,0 +1,8 @@
+<view class="font">
+    <view class="com_succ">
+        <icon color="#31A9FF" size="140" type="success"></icon>
+        <view class="com_get">评价成功</view>
+        <view class="comcan">您的评价将是其他用户选购前的重要参考</view>
+        <view bindtap="index" class="com_home">回到首页</view>
+    </view>
+</view>

@@ -1,0 +1,5 @@
+<view class="font">
+    <view class="seller3">
+        <image class="seller_img" src="../images/chengxu.png"></image>
+    </view>
+</view>

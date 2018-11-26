@@ -1,0 +1,60 @@
+page {
+    background-color: #F5F5F5;
+}
+
+.weui-cells_after-title {
+    margin-top: 30rpx;
+}
+
+.weui-cell {
+    padding: 20rpx 30rpx;
+    font-size: 30rpx;
+}
+
+.weui-cell_input {
+    height: 1.7em;
+}
+
+.weui-cell__hd {
+    margin-right: 30rpx;
+}
+
+.weui-cell__ft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weui-cell__ft image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 50rpx;
+}
+
+.xzfl {
+    width: 400rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    background: #34aaff;
+    border-radius: 20rpx;
+    margin: 20rpx auto;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.weui-btn-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weui-btn-area button {
+    width: 40%;
+}
+
+.weui-btn {
+    margin-top: 0;
+}

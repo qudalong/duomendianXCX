@@ -1,0 +1,162 @@
+page {
+    background: #F5F5F5;
+}
+
+.list {
+    margin-bottom: 10rpx;
+    border-top: 1rpx solid #EEEEEE;
+}
+
+.list_header {
+    display: flex;
+    font-size: 32rpx;
+    height: 80rpx;
+    background-color: white;
+    line-height: 80rpx;
+    margin-bottom: 10rpx;
+}
+
+.list_title {
+    width: 33%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.list_imgbk {
+    width: 343rpx;
+    height: 343rpx;
+    margin-bottom: 30rpx;
+}
+
+.list_imgbk2 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 500rpx;
+}
+
+.list_imgbk3 {
+    font-size: 30rpx;
+    color: #999;
+    text-align: center;
+    line-height: 30rpx;
+}
+
+.list_cancel {
+    display: flex;
+}
+
+.list_margin {
+    margin-bottom: 10rpx;
+    background-color: white;
+    padding: 0rpx 30rpx;
+}
+
+.list_border {
+    width: 100rpx;
+    height: 7rpx;
+    margin-top: -5rpx;
+}
+
+.selsect {
+    color: #333;
+}
+
+.default {
+    color: #0097FF;
+}
+
+.list_order {
+    font-size: 26rpx;
+    border-bottom: 1rpx solid #EEEEEE;
+    padding-bottom: 20rpx;
+    padding-top: 20rpx;
+}
+
+.list_pay {
+    color: #0097FF;
+}
+
+.list_info {
+    padding: 20rpx 0rpx;
+    display: flex;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+
+.list_img {
+    width: 100rpx;
+    height: 100rpx;
+    background-color: pink;
+    border-radius: 6rpx;
+    margin-right: 30rpx;
+}
+
+.list_seller {
+    font-size: 32rpx;
+    color: #333;
+}
+
+.list_time {
+    color: #999;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+}
+
+.list_zuo {
+    color: #B0B0B0;
+    font-size: 28rpx;
+    margin-top: 15rpx;
+}
+
+.place {
+    padding: 20rpx 0rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+.list_surplus {
+    padding: 10rpx 20rpx;
+    font-size: 24rpx;
+    color: #999;
+    border: 1rpx solid #999;
+    border-radius: 25rpx;
+    margin-right: 20rpx;
+}
+
+.list_surplus1 {
+    padding: 10rpx 20rpx;
+    font-size: 24rpx;
+    color: #0097FF;
+    border: 1rpx solid #0097FF;
+    border-radius: 25rpx;
+}
+
+.list_surplus2 {
+    padding: 10rpx 20rpx;
+    font-size: 24rpx;
+    color: #FF4040;
+    border: 1rpx solid #FF4040;
+    border-radius: 25rpx;
+    margin-right: 20rpx;
+}
+
+.list_surplus3 {
+    padding: 10rpx 20rpx;
+    font-size: 24rpx;
+    color: #999;
+    border: 1rpx solid #999;
+    border-radius: 25rpx;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

@@ -1,0 +1,135 @@
+.authen {
+    background-color: white;
+    padding: 40rpx 30rpx 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header_text {
+    font-size: 36rpx;
+    color: #333;
+    margin-left: 15rpx;
+}
+
+.authen_header {
+    display: flex;
+    align-items: center;
+}
+
+.header_bot {
+    font-size: 26rpx;
+    color: #999;
+    margin-top: 20rpx;
+}
+
+.section {
+    background-color: white;
+    padding: 0rpx 30rpx 30rpx;
+}
+
+.section_state {
+    margin-top: 20rpx;
+    background-color: white;
+    padding: 0rpx 30rpx 30rpx;
+}
+
+.section_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100rpx;
+    border-bottom: 1rpx solid #999;
+}
+
+.section_header_text {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+    margin-left: 15rpx;
+    margin-right: 15rpx;
+}
+
+.section_header_img {
+    width: 25rpx;
+    height: 15rpx;
+}
+
+.section_footer {
+    margin-bottom: 10rpx;
+}
+
+.section_one {
+    display: flex;
+    margin-top: 40rpx;
+}
+
+.section_two {
+    display: flex;
+    margin-top: 40rpx;
+    padding-bottom: 10rpx;
+}
+
+.section_one_img {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.section_one_right {
+    margin-left: 20rpx;
+    width: 570rpx;
+}
+
+.right_title {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.right_content {
+    color: #65717F;
+    font-size: 26rpx;
+    margin-top: 10rpx;
+}
+
+.right_content2 {
+    color: #65717F;
+    font-size: 26rpx;
+    margin-left: 30rpx;
+    width: 600rpx;
+}
+
+.section_one_yuan {
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background-color: #65717F;
+    margin-top: 10rpx;
+}
+
+.footer_btn {
+    width: 100%;
+    border: 1rpx solid #0099E9;
+    height: 80rpx;
+    background-color: #0099E9;
+    color: white;
+    font-size: 26rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 10rpx;
+}
+
+.footer {
+    width: 90%;
+    padding: 15rpx 40rpx;
+    background-color: white;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+}
+
+.section_state2 {
+    padding-bottom: 120rpx;
+}

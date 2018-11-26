@@ -1,0 +1,40 @@
+<view class="weui-cell weui-cell_select tbsx">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">按日期搜索</view>
+    </view>
+    <view class="weui-cell__bd">
+        <picker bindchange="bindDateChange" mode="date" value="{{date}}">
+            <view class="weui-select weui-select_in-select-after">{{date}}</view>
+        </picker>
+    </view>
+    <view bindtap="sousuo" class="weui-cell__ft">
+    搜索
+  </view>
+</view>
+<view class="integralh">
+    <view class="integral" wx:for="{{dmfdd}}">
+        <image src="../../images/weixin.png" wx:if="{{item.is_yue=='2'}}"></image>
+        <image src="../../images/qb.png" wx:if="{{item.is_yue=='1'}}"></image>
+        <image src="../../images/cost.png" wx:if="{{item.is_yue=='3'}}"></image>
+        <view class="integral-left">
+            <view>{{item.name}}</view>
+            <view>{{item.time}}</view>
+        </view>
+        <view class="integral-right">
+            <text style="color:#6AC20B" wx:if="{{item.is_yue=='2'}}">{{item.money}}<text class="integral-right1">元</text>
+            </text>
+            <text style="color:#34aaff" wx:if="{{item.is_yue=='1'}}">{{item.money}}<text class="integral-right1">元</text>
+            </text>
+            <text style="color:#f9ab5e" wx:if="{{item.is_yue=='3'}}">{{item.money}}<text class="integral-right1">元</text>
+            </text>
+        </view>
+    </view>
+    <view class="jzz" hidden="{{jzgd}}">
+        <image class="Rotation" src="../../images/jzz.png"></image>
+        <view>加载中...</view>
+    </view>
+    <view class="kong" wx:if="{{jzwb}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>

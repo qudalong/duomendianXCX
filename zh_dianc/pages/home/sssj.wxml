@@ -1,0 +1,95 @@
+<view class="page">
+    <view class="page__bd">
+        <scroll-view bindscroll="scroll" bindscrolltolower="pullUpLoad" bindscrolltoupper="pullDownRefresh" class="weui-panel weui-panel_access" scrollTop="{{scrollTop}}" scrollY="true" style="height: {{windowHeight}}px; width: {{windowWidth}}px;">
+            <view class="weui-panel__hd">
+                <view class="weui-search-bar">
+                    <view class="weui-search-bar__form">
+                        <view class="weui-search-bar__box">
+                            <icon class="weui-icon-search_in-box" size="16" type="search"></icon>
+                            <input bindinput="inputTyping" class="weui-search-bar__input" focus="{{inputShowed}}" placeholder="搜索" type="text" value="{{inputVal}}"></input>
+                            <view bindtap="clearInput" class="weui-icon-clear" wx:if="{{inputVal.length>0}}">
+                                <icon size="14" type="clear"></icon>
+                            </view>
+                        </view>
+                        <label bindtap="showInput" class="weui-search-bar__label" hidden="{{inputShowed}}">
+                            <icon class="weui-icon-search" size="16" type="search"></icon>
+                            <view class="weui-search-bar__text">搜索</view>
+                        </label>
+                    </view>
+                    <view bindtap="searchData" class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}">搜索</view>
+                </view>
+                <view wx:if="{{searchLogShowed}}">
+                    <view bindtap="searchDataByLog" class="search-log" data-log="{{searchLog}}" wx:for="{{searchLogList}}" wx:for-item="searchLog" wx:key="searchLogListId">
+            {{searchLog}}
+          </view>
+                    <view bindtap="clearSearchLog" class="clear-search-log">清除搜索记录</view>
+                </view>
+            </view>
+            <view class="recommed">
+                <view class="jzz" hidden="{{qqsj}}">
+                    <image class="Rotation" src="../images/jzz.png"></image>
+                    <view>加载中...</view>
+                </view>
+                <block wx:if="{{qqsj}}">
+                    <view bindtap="tzsj" class="recommed_list" data-sjid="{{item}}" wx:if="{{tjstorelist.length!=0}}" wx:for="{{tjstorelist}}">
+                        <image class="recommed_img" src="{{url}}{{item.logo}}"></image>
+                        <view class="recommed_content" style="flex:1">
+                            <view class="recommed_title">
+                                <view class="title_right">{{item.name}}</view>
+                            </view>
+                            <view class="recommed_title">
+                                <view class="pingjia_fenshu3">
+                                    <view class="kximg">
+                                        <image src="../images/i-star.png"></image>
+                                    </view>
+                                    <view class="sximg" style="width: {{item.score*20}}%">
+                                        <image src="../images/i-stars.png"></image>
+                                    </view>
+                                </view>
+                                <view class="pingfen">{{item.score}}</view>
+                                <view class="recommed_midel">月售{{item.sales}}单</view>
+                            </view>
+                            <view class="recommed_title recommed_end">
+                                <view class="border_right">￥{{item.start_at}}起送</view>
+                                <view class="border_right1">配送费￥{{item.freight}}</view>
+                            </view>
+                        </view>
+                        <view class="recommed_right">
+                            <view class="recommed_bao">保</view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='1'}}">
+                                <view>准时达</view>
+                                <view>达达配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='2'}}">
+                                <view>准时达</view>
+                                <view>商家配送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='3'}}">
+                                <view>准时达</view>
+                                <view>UU跑腿</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='4'}}">
+                                <view>准时达</view>
+                                <view>人人派送</view>
+                            </view>
+                            <view class="recommed_time" wx:if="{{item.ps_mode=='5'}}">
+                                <view>准时达</view>
+                                <view>快服务</view>
+                            </view>
+                            <view class="recommed_mi">
+                                <view>离你{{item.aa}}</view>
+                                <view></view>
+                                <view>{{item.sd_time}}</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="kong" wx:if="{{tjstorelist.length==0}}">
+                        <image src="../images/wushuju.png"></image>
+                        <view>暂无符合您搜索内容的商家</view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="page__ft"></view>
+</view>

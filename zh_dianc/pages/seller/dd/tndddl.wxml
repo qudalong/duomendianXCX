@@ -1,0 +1,70 @@
+<view class="djd">
+    <view class="djdh">
+        <view class="djdh2">
+            <text>订单号</text>
+            <text>{{wmdd.order.order_num}}</text>
+        </view>
+        <view class="djdh1" wx:if="{{wmdd.order.dn_state=='1'}}">待支付</view>
+        <view class="djdh1" wx:if="{{wmdd.order.dn_state=='2'}}">已完成</view>
+        <view class="djdh1" wx:if="{{wmdd.order.dn_state=='3'}}">已关闭</view>
+    </view>
+    <view class="djdb">
+        <view class="djdb1">
+            <view class="djdb1-left">
+        {{wmdd.order.table_name}}--{{wmdd.order.table_name_type}}
+      </view>
+        </view>
+    </view>
+    <view class="djdc">
+        <view class="djdc1">商品（{{wmdd.good.length}}）</view>
+        <view class="djdc2" wx:if="{{wmdd.order.note!=''}}">
+            <view>
+                <text>备注：</text>{{wmdd.order.note}}</view>
+        </view>
+        <view class="djdc3">
+            <view class="list_one flex" wx:for="{{wmdd.good}}">
+                <view class="cplist">
+                    <image class="cpimg" src="{{url}}{{item.img}}"></image>
+                    <view>{{item.name}}</view>
+                </view>
+                <view class="list_flex">
+                    <view class="list_text">×{{item.number}}</view>
+                    <view class="list_text2">¥{{item.money}}</view>
+                </view>
+            </view>
+            <view class="list_one flex">
+                <view>
+                    <text class="hui">惠</text>优惠</view>
+                <view>-¥{{wmdd.order.preferential}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="djdd">
+        <view class="djdd1">
+            <view class="djdd-left">
+                <view>本单预计收入</view>
+                <image src="../../images/wh.png"></image>
+            </view>
+            <view class="djdd-right">
+        ￥{{wmdd.order.money}}
+      </view>
+        </view>
+    </view>
+    <view class="list_info">
+        <view class="give_time flex">
+            <view>支付方式</view>
+            <view class="five_text" wx:if="{{wmdd.order.is_yue=='0'}}">餐后支付</view>
+            <view class="five_text" wx:if="{{wmdd.order.is_yue=='2'}}">微信支付</view>
+            <view class="five_text" wx:if="{{wmdd.order.is_yue=='1'}}">余额支付</view>
+            <view class="five_text" wx:if="{{wmdd.order.is_yue=='3'}}">积分支付</view>
+        </view>
+        <view class="give_time flex">
+            <view>下单时间</view>
+            <view class="five_text">{{wmdd.order.time}}</view>
+        </view>
+        <view class="give_time flex" wx:if="{{wmdd.order.pay_time!='0'}}">
+            <view>付款时间</view>
+            <view class="five_text">{{wmdd.order.pay_time}}</view>
+        </view>
+    </view>
+</view>

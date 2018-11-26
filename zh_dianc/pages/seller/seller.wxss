@@ -1,0 +1,15 @@
+page {
+    background-color: #EFEFF4;
+}
+
+.seller3 {
+    display: flex;
+    justify-content: center;
+    padding-top: 200rpx;
+    align-items: center;
+}
+
+.seller_img {
+    width: 459rpx;
+    height: 320rpx;
+}

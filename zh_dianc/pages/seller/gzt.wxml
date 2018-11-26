@@ -1,0 +1,126 @@
+<import src="template.wxml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+<view class="head">
+    <view bindtap="tzsz" class="headv">
+        <image src="../images/shezhi@3x.png"></image>
+        <view>店铺设置</view>
+    </view>
+    <view class="headv" style="font-size: 32rpx;">
+        <image src="{{url}}{{sjinfo.logo}}" style="width:100rpx;height:100rpx; margin-bottom: 30rpx;border-radius: 50%;"></image>
+        <view style="text-align:center">{{sjinfo.name}}</view>
+    </view>
+    <view bindtap="smhx" class="headv">
+        <image src="../images/saoma.png"></image>
+        <view>扫码核销</view>
+    </view>
+</view>
+<view class="head3">
+    <view style="border-right:1px solid #d9d9d9">
+        <text class="">{{jrdd}}</text>
+        <text class="">今日订单</text>
+    </view>
+    <view style="border-right:1px solid #d9d9d9">
+        <text class="">{{jrcj}}</text>
+        <text class="">今日成交</text>
+    </view>
+    <view>
+        <text class="">{{fwl}}</text>
+        <text class="">访问量</text>
+    </view>
+</view>
+<view class="ddgl">
+    <view class="ddglh">
+        <image src="../images/dd1.png"></image>
+        <view>外卖订单管理</view>
+    </view>
+    <view class="ddglb">
+        <view bindtap="djd" style="border-right:1px solid #d9d9d9">
+            <image src="../images/djd.png"></image>
+            <text class="">待接单</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{djd.length}}</text>单</text>
+        </view>
+        <view bindtap="dps" style="border-right:1px solid #d9d9d9">
+            <image src="../images/dps.png"></image>
+            <text class="">待配送</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{dps.length}}</text>单</text>
+        </view>
+        <view bindtap="tkdd">
+            <image src="../images/tkdd.png"></image>
+            <text class="">退款订单</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{tkdd.length}}</text>单</text>
+        </view>
+    </view>
+</view>
+<view class="ddgl">
+    <view class="ddglh">
+        <image src="../images/dd1.png"></image>
+        <view>堂内订单管理</view>
+    </view>
+    <view class="ddglb">
+        <view bindtap="dzf" style="border-right:1px solid #d9d9d9">
+            <image src="../images/qb.png"></image>
+            <text class="">待支付</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{dzf.length}}</text>单</text>
+        </view>
+        <view bindtap="ywc" style="border-right:1px solid #d9d9d9">
+            <image src="../images/xianjin.png"></image>
+            <text class="">已完成</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{ywc.length}}</text>单</text>
+        </view>
+        <view bindtap="ygb">
+            <image src="../images/tkdd.png"></image>
+            <text class="">已关闭</text>
+            <text class="">
+                <text style="color:#f44444;margin-right:10rpx">{{ygb.length}}</text>单</text>
+        </view>
+    </view>
+</view>
+<view class="cwgl">
+    <view class="ddglh">
+        <image src="../images/caiwu1.png"></image>
+        <view>财务管理</view>
+    </view>
+</view>
+<view class="cwglb">
+    <view style="border-right:1px solid #d9d9d9;border-bottom:1px solid #d9d9d9">
+        <image src="../images/jrsy.png"></image>
+        <view>
+            <view wx:if="{{jtsy!=''}}">
+                <text style="color:#f44444;margin-right:10rpx">{{jtsy}}</text>元</view>
+            <view wx:if="{{jtsy==''}}">
+                <text style="color:#f44444;margin-right:10rpx">0</text>元</view>
+            <view>今日收益</view>
+        </view>
+    </view>
+    <view style="border-bottom:1px solid #d9d9d9">
+        <image src="../images/zrsy.png"></image>
+        <view>
+            <view wx:if="{{ztsy!=''}}">
+                <text style="color:#f44444;margin-right:10rpx">{{ztsy}}</text>元</view>
+            <view wx:if="{{ztsy==''}}">
+                <text style="color:#f44444;margin-right:10rpx">0</text>元</view>
+            <view>昨日收益</view>
+        </view>
+    </view>
+    <view style="border-right:1px solid #d9d9d9">
+        <image src="../images/zsy.png"></image>
+        <view>
+            <view wx:if="{{zgsy!=''}}">
+                <text style="color:#f44444;margin-right:10rpx">{{zgsy}}</text>元</view>
+            <view wx:if="{{zgsy==''}}">
+                <text style="color:#f44444;margin-right:10rpx">0</text>元</view>
+            <view>总计收益</view>
+        </view>
+    </view>
+    <view bindtap="wytx">
+        <image src="../images/wytx.png"></image>
+        <view>
+            <view>我要提现</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,32 @@
+<import src="template.wxml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__hd">商家开店关店</view>
+        <view class="weui-cell__bd">{{dpkgtext}}</view>
+        <view class="weui-cell__ft">
+            <switch bindchange="switch1Change" checked="{{dpkg}}" color="#34aaff"></switch>
+        </view>
+    </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__hd">商家背景音乐</view>
+        <view class="weui-cell__bd">{{yykgtext}}</view>
+        <view class="weui-cell__ft">
+            <switch bindchange="switch3Change" checked="{{yykg}}" color="#34aaff"></switch>
+        </view>
+    </view>
+</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__hd">订单语音播报</view>
+        <view class="weui-cell__bd">{{txkgtext}}</view>
+        <view class="weui-cell__ft">
+            <switch bindchange="switch2Change" checked="{{txkg}}" color="#34aaff"></switch>
+        </view>
+    </view>
+</view>
+<view class="weui-btn-area">
+    <button bindtap="tcdl" class="weui-btn" style="background:#34aaff" type="primary">退出登录</button>
+</view>

@@ -1,0 +1,25 @@
+<view class="wallet">
+    <view class="mywallet">
+        <view class="title">我的余额</view>
+        <view class="flex-bet mywallet_info">
+            <view class="flex-center">
+                <image class="wallet_img" src="../images/wallet.png"></image>
+                <view class="wallet_money">¥{{wallet}}</view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="tradeinfo" class="list flex-bet">
+        <view class="flex-center trade">
+            <image class="listimg" src="../images/order.png"></image>
+            <view class="">交易明细</view>
+        </view>
+        <image class="addright" src="../images/huise@2x.png"></image>
+    </view>
+    <view bindtap="cash" class="list flex-bet">
+        <view class="flex-center trade">
+            <image class="listimg" src="../images/bankcard.png"></image>
+            <view class="">去充值</view>
+        </view>
+        <image class="addright" src="../images/huise@2x.png"></image>
+    </view>
+</view>

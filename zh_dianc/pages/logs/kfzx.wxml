@@ -1,0 +1,10 @@
+<view class="container">
+    <button class="kf" openType="contact">
+        <image src="../images/zxkf1.png" style="height:90rpx;"></image>
+        <view>在线客服</view>
+    </button>
+    <button bindtap="tel" class="kf">
+        <image src="../images/telephone.png"></image>
+        <view>联系电话</view>
+    </button>
+</view>

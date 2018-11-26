@@ -1,0 +1,24 @@
+<view class="font">
+    <view class="dish_img">
+        <image class=""></image>
+    </view>
+    <view class="dish_banner">
+        <view class="dish_title">【显示套餐】咖喱饭</view>
+        <view class="dish_month">月售 150</view>
+        <view class="dish_cart flex">
+            <view class="cart_text">¥14.9</view>
+            <view class="dish_frame">加入购物车</view>
+        </view>
+    </view>
+    <view class="dish_content">
+        <view class="dish_seller">
+            <view class="dish_info">商品详情</view>
+            <view class="dish_rice">我们采用进口的咖喱，好吃，不腻</view>
+        </view>
+        <view class="dish_seller_info">
+            <view class="dish_info">商品评价</view>
+            <view class="dish_praise">好评率100%</view>
+            <view class="dish_praise1"></view>
+        </view>
+    </view>
+</view>

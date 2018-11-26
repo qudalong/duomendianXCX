@@ -1,0 +1,139 @@
+@import "template.wxss";
+
+page {
+    padding-bottom: 120rpx;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #34aaff;
+    border-bottom-left-radius: 150rpx;
+    border-bottom-right-radius: 150rpx;
+}
+
+.headv {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+.headv image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-bottom: 20rpx;
+}
+
+.head3 {
+    margin-top: 40rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 20rpx solid #F5F5F5;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.head3 view {
+    box-sizing: border-box;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head3 view text:nth-child(1) {
+    flex: 1;
+    font-size: 30rpx;
+    margin-bottom: 10rpx;
+}
+
+.head3 view text:nth-child(2) {
+    font-size: 30rpx;
+    color: #999;
+}
+
+.ddgl {
+    padding: 0 30rpx;
+    border-bottom: 20rpx solid #F5F5F5;
+}
+
+.ddglh {
+    padding: 20rpx 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.ddglh image {
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+
+.ddglb {
+    margin-top: 20rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ddglb image {
+    width: 65rpx;
+    height: 60rpx;
+    margin-bottom: 20rpx;
+}
+
+.ddglb view {
+    box-sizing: border-box;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.ddglb view text:nth-child(3) {
+    flex: 1;
+    font-size: 25rpx;
+    margin-bottom: 10rpx;
+}
+
+.cwgl {
+    padding: 0 30rpx;
+}
+
+.cwglb {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cwglb>view {
+    box-sizing: border-box;
+    width: 50%;
+    padding: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.cwglb view image {
+    width: 60rpx;
+    height: 60rpx;
+    margin-right: 40rpx;
+}

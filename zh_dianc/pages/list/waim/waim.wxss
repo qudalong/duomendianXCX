@@ -1,0 +1,181 @@
+page {
+    background-color: #EFEFF4;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30rpx;
+    background-color: white;
+}
+
+.list_culom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.list_doing {
+    font-size: 28rpx;
+    color: white;
+    width: 200rpx;
+    background-color: #34AAFF;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 6rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_onelogo {
+    display: flex;
+    align-items: center;
+}
+
+.list_oneimg {
+    width: 70rpx;
+    height: 70rpx;
+    margin-right: 30rpx;
+}
+
+.list_img {
+    width: 120rpx;
+    height: 120rpx;
+    background-color: pink;
+}
+
+.list_time {
+    width: 180rpx;
+    font-size: 26rpx;
+    color: white;
+    background-color: #34AAFF;
+    height: 35rpx;
+    line-height: 35rpx;
+    text-align: center;
+    border-radius: 6rpx;
+    margin-top: 30rpx;
+}
+
+.list_user {
+    font-size: 26rpx;
+    color: #34AAFF;
+    margin-top: 10rpx;
+}
+
+.list_comple {
+    font-size: 40rpx;
+    color: #333;
+    margin-top: 15rpx;
+}
+
+.list_banner {
+    margin-top: 20rpx;
+    padding: 0rpx 30rpx;
+    background-color: white;
+}
+
+.list_one {
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 1rpx solid #E7E7E8;
+    font-size: 28rpx;
+}
+
+.list_orrow {
+    width: 20rpx;
+    height: 30rpx;
+}
+
+.list_text {
+    margin-right: 50rpx;
+}
+
+.list_text2 {
+    width: 100rpx;
+    text-align: right;
+}
+
+.list_flex {
+    display: flex;
+}
+
+.list_thank {
+    font-size: 28rpx;
+}
+
+.list_cancel {
+    display: flex;
+    margin-top: 20rpx;
+}
+
+.list_surplus {
+    width: 200rpx;
+    height: 70rpx;
+    font-size: 26rpx;
+    color: #fff;
+    background-color: #FF5539;
+    border-radius: 6rpx;
+    margin-left: 30rpx;
+}
+
+.list_surplus1 {
+    width: 200rpx;
+    height: 70rpx;
+    font-size: 26rpx;
+    color: white;
+    background-color: #0097FF;
+    border-radius: 6rpx;
+}
+
+.list_tel {
+    color: #0097FF;
+    display: flex;
+    align-items: center;
+}
+
+.list_tel image {
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+
+.list_info {
+    margin-top: 20rpx;
+    padding: 20rpx 30rpx 30rpx;
+    background-color: white;
+}
+
+.list_give {
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+    font-weight: bold;
+}
+
+.give_time {
+    font-size: 28rpx;
+    color: #333;
+    height: 80rpx;
+    border-bottom: 1rpx solid #E7E7E8;
+}
+
+.give_time1 {
+    font-size: 28rpx;
+    color: #333;
+    padding: 30rpx 0rpx;
+    border-bottom: 1rpx solid #E7E7E8;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list_map {
+    width: 400rpx;
+    text-align: right;
+}
+
+.five_text {
+    font-size: 26rpx;
+    color: #999;
+}

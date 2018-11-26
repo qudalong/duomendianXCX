@@ -1,0 +1,24 @@
+<view class="font">
+    <form bindreset="formReset" bindsubmit="formSubmit">
+        <view class="dingevaluate">
+            <image class="dingimg" src="{{url}}{{seller.logo}}"></image>
+            <view class="dingtext">相关描述</view>
+            <image class="star-image" src="{{key>item?key-item==0.5?halfSrc:selectedSrc:normalSrc}}" style="left: {{item*50}}rpx" wx:for="{{stars}}">
+                <view bindtap="selectLeft" class="item" data-key="{{item+1}}" style="left:0rpx"></view>
+            </image>
+            <view class="dingtext1" wx:if="{{count>=0}}">{{count}}分</view>
+        </view>
+        <view class="dingyi">
+            <textarea class="dingtext2" name="content" placeholder="请输入您宝贵的意见" placeholderStyle="color:#ccc;"></textarea>
+        </view>
+        <view class="footer">
+            <view class="footer_left" wx:if="{{integral!=0}}">评论可得
+      <text class="footerji">{{integral}}</text>积分哦!
+    </view>
+            <view class="footer_left" wx:if="{{integral==0}}">
+    {{seller.name}}
+    </view>
+            <button class="footer_right" formType="submit">提交评价</button>
+        </view>
+    </form>
+</view>

@@ -1,0 +1,25 @@
+.head {
+    height: 350rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.head image {
+    width: 120rpx;
+    height: 120rpx;
+    z-index: 999;
+}
+
+.hydlqueren {
+    height: 80rpx;
+    width: 80%;
+    font-size: 30rpx;
+    line-height: 80rpx;
+    text-align: center;
+    color: white;
+    background: #09bb07;
+    border-radius: 10rpx;
+    margin-top: 100rpx;
+}

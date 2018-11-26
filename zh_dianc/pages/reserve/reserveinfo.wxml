@@ -1,0 +1,46 @@
+<view class="font">
+    <view class="re_header" style="background:{{color}}">
+        <view class="re_header_img">
+            <image class="re_header_image" src="{{imglink}}{{yyinfo.logo}}"></image>
+        </view>
+        <view class="re_header_order">预约信息确认中</view>
+    </view>
+    <view class="re_content">
+        <view class="content_title">
+            <view>{{yyinfo.name}}</view>
+            <image class="content_img" src="../images/huise@2x.png"></image>
+        </view>
+        <view class="content_info">
+            <view>预约时间：{{yyinfo.xz_date}} {{yyinfo.yjdd_date}}</view>
+            <view>就餐人数：{{yyinfo.jc_num}}</view>
+            <view>桌子类型：{{yyinfo.table_type_name}}-最低消费{{yyinfo.zd_cost}}元</view>
+            <view>联系人：{{yyinfo.link_name}}</view>
+            <view>电话：{{yyinfo.link_tel}}</view>
+            <view>备注：{{yyinfo.remark}}</view>
+        </view>
+    </view>
+    <view class="re_info">
+        <view class="info_title">预约详情</view>
+        <view class="info_order">
+            <view class="info_box">
+                <view class="info_menu">预约信息发送成功</view>
+                <view class="info_success">{{yyinfo.created_time}}</view>
+                <view class="info_yuan"></view>
+            </view>
+            <view class="info_box">
+                <view class="info_menu">预约信息确认中</view>
+                <view class="info_success">{{yyinfo.created_time}}</view>
+                <view class="info_yuan" style="background-color:#FF9527"></view>
+            </view>
+            <view class="info_box">
+                <view class="info_menu">预约成功</view>
+                <view class="info_success"></view>
+                <view class="info_yuan"></view>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <view bindtap="cancel" class="info_cancel" style="color:{{color}};border:1rpx solid {{color}}">取消预约</view>
+        <view catchtap="call_phone" class="info_tel" style="background:{{color}}">联系商家</view>
+    </view>
+</view>

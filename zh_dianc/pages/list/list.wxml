@@ -1,0 +1,176 @@
+<view class="font">
+    <view class="list_header">
+        <view bindtap="tabClick" class="list_title {{activeIndex==index?'default':'selsect'}}" id="{{0}}">
+            <view>{{wm}}</view>
+            <view class="list_border" hidden="{{activeIndex!=0}}" style="background-color: {{color}};"></view>
+        </view>
+        <view bindtap="tabClick" class="list_title {{activeIndex==index?'default':'selsect'}}" id="{{1}}">
+            <view>{{dc}}</view>
+            <view class="list_border" hidden="{{activeIndex!=1}}" style="background-color: {{color}};"></view>
+        </view>
+        <view bindtap="tabClick" class="list_title {{activeIndex==index?'default':'selsect'}}" id="{{2}}">
+            <view>{{yd}}</view>
+            <view class="list_border" hidden="{{activeIndex!=2}}" style="background-color: {{color}};"></view>
+        </view>
+    </view>
+    <view class="list" hidden="{{activeIndex!=0}}">
+        <view class="list_imgbk2" hidden="{{wmdd.length!=0}}">
+            <image class="list_imgbk" src="../images/list.png"></image>
+            <view class="list_imgbk3">您暂时还没有订单哦！</view>
+        </view>
+        <view class="list_margin" wx:for="{{wmdd}}">
+            <view class="flex list_order">
+                <view>【{{wm}}】订单编号：{{item.order_num}}</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='1'}}">等待支付</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='2'}}">待接单</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='3'}}">订单配送中</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='4'||item.state=='6'}}">已完成</view>
+                <view class="list_pay" style="color:#999;" wx:if="{{item.state=='5'}}">订单已取消</view>
+                <view class="list_pay" style="color:#999;" wx:if="{{item.state=='7'}}">等待退款</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='8'}}">退款成功</view>
+                <view class="list_pay" style="color:#FF4040;" wx:if="{{item.state=='9'}}">退款失败</view>
+            </view>
+            <navigator url="waim/waim?wmddid={{item.id}}">
+                <view class="list_info">
+                    <image class="list_img" src="{{imglink}}{{item.img}}"></image>
+                    <view>
+                        <view class="list_seller">{{item.name}}</view>
+                        <view class="list_time">{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                        <view class="list_zuo"></view>
+                    </view>
+                </view>
+            </navigator>
+            <view class="place flex">
+                <view>合计：{{item.money}}</view>
+                <view class="list_cancel" wx:if="{{item.state=='1'}}">
+                    <view bindtap="qxdd" class="list_surplus" data-wmddid="{{item.id}}">取消订单</view>
+                    <view bindtap="ljzf" class="list_surplus1" data-wmddid="{{item.id}}" style="color:{{color}};border: 1rpx solid {{color}};">立即支付</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='2'}}">
+                    <view bindtap="sqtk" class="list_surplus2" data-wmddid="{{item.id}}" wx:if="{{item.is_yue=='2'}}">申请退款</view>
+                    <view bindtap="txsj" class="list_surplus1" data-wmddid="{{item.id}}" data-wmddtel="{{item.tel}}" style="color:{{color}};border: 1rpx solid {{color}};">提醒商家</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='3'}}">
+                    <view bindtap="sqtk" class="list_surplus2" data-wmddid="{{item.id}}" wx:if="{{item.is_yue=='2'}}">申请退款</view>
+                    <view bindtap="lxsj" class="list_surplus" data-wmddid="{{item.id}}" data-wmddtel="{{item.tel}}">联系商家</view>
+                    <view bindtap="qrsh" class="list_surplus1" data-wmddid="{{item.id}}">确认收货</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='4'||item.state=='6'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view bindtap="pingjia" class="list_surplus1" data-wmddid="{{item.id}}" style="color:{{color}};border: 1rpx solid {{color}};margin-right:20rpx" wx:if="{{item.state=='4'}}">去评价</view>
+                    <view bindtap="zlyd" class="list_surplus" style="margin-right:0">再来一单</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='5'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus3">已取消</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='7'}}">
+                    <view class="list_surplus">待审核</view>
+                </view>
+                <view class="list_cancel" style="color:{{color}}" wx:if="{{item.state=='8'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus1" style="color:{{color}};border: 1rpx solid {{color}}">已退款</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='9'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus2" style="margin-right:0">已拒绝</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="list" hidden="{{activeIndex!=1}}">
+        <view class="list_imgbk2" hidden="{{dndd.length!=0}}">
+            <image class="list_imgbk" src="../images/list.png"></image>
+            <view class="list_imgbk3">您暂时还没有订单哦！</view>
+        </view>
+        <view class="list_margin" wx:for="{{dndd}}">
+            <view class="flex list_order">
+                <view>【{{dc}}】订单编号：{{item.order_num}}</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.dn_state=='1'}}">等待支付</view>
+                <view class="list_pay" style="color:#FD553A;" wx:if="{{item.dn_state=='2'||item.dn_state=='4'}}">已完成</view>
+                <view class="list_pay" style="color:#999;" wx:if="{{item.dn_state=='3'}}">订单已取消</view>
+            </view>
+            <navigator url="choose/choose?dnddid={{item.id}}">
+                <view class="list_info">
+                    <image class="list_img" src="{{imglink}}{{item.img}}"></image>
+                    <view>
+                        <view class="list_seller">{{item.name}}</view>
+                        <view class="list_time">{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                        <view class="list_zuo"></view>
+                    </view>
+                </view>
+            </navigator>
+            <view class="place flex">
+                <view>合计：¥{{item.money}}</view>
+                <view class="list_cancel" wx:if="{{item.dn_state=='1'}}">
+                    <view bindtap="qxdd" class="list_surplus" data-wmddid="{{item.id}}">取消订单</view>
+                    <view bindtap="dnljzf" class="list_surplus1" data-dnddid="{{item.id}}" style="color:{{color}};border: 1rpx solid {{color}};">立即支付</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.dn_state=='2'||item.dn_state=='4'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view bindtap="zlyd" class="list_surplus" style="color:#FD553A;border:1rpx solid #FD553A;">再来一单</view>
+                    <view bindtap="pingjia" class="list_surplus1" data-wmddid="{{item.id}}" style="border: 1rpx solid {{color}};" wx:if="{{item.dn_state=='2'}}">去评价</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.dn_state=='3'}}">
+                    <view bindtap="scdd" class="list_surplus2" data-wmddid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus" style="margin-right:0">已取消</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="list" hidden="{{activeIndex!=2}}">
+        <view class="list_imgbk2" hidden="{{ydlist.length!=0}}">
+            <image class="list_imgbk" src="../images/list.png"></image>
+            <view class="list_imgbk3">您暂时还没有订单哦！</view>
+        </view>
+        <view class="list_margin" wx:for="{{ydlist}}">
+            <view class="flex list_order">
+                <view>【{{yd}}】订单编号：{{item.order_num}}</view>
+                <view class="list_pay" style="color:{{color}};" wx:if="{{item.state=='1'}}">预约中</view>
+                <view class="list_pay" wx:if="{{item.state=='2'}}">预约完成</view>
+                <view class="list_pay" style="color:#999;" wx:if="{{item.state=='4'}}">预约已取消</view>
+                <view class="list_pay" style="color:#999;" wx:if="{{item.state=='5'}}">等待退款</view>
+                <view class="list_pay" style="color:{{color}}" wx:if="{{item.state=='6'}}">退款成功</view>
+                <view class="list_pay" style="color:#FF4040;" wx:if="{{item.state=='7'}}">退款失败</view>
+            </view>
+            <navigator url="reserveinfo/reserveinfo?yyid={{item.id}}">
+                <view bindtap="reserve" class="list_info">
+                    <image class="list_img" src="{{imglink}}{{item.logo}}"></image>
+                    <view>
+                        <view class="list_seller">{{item.name}}</view>
+                        <view class="list_time">预订到店时间：{{item.xz_date}} {{item.yjdd_date}}</view>
+                        <view class="list_zuo">就餐人数：{{item.jc_num}}</view>
+                    </view>
+                </view>
+            </navigator>
+            <view class="place flex">
+                <view>桌位类型：{{item.table_type_name}}</view>
+                <view class="list_cancel" wx:if="{{item.state=='1'}}">
+                    <view bindtap="qxyy" class="list_surplus" data-yyid="{{item.id}}">取消预约</view>
+                    <view bindtap="ckxq" class="list_surplus1" data-yyid="{{item.id}}" style="color:{{color}};border: 1rpx solid {{color}};">查看详情</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='2'}}">
+                    <view bindtap="scyy" class="list_surplus2" data-yyid="{{item.id}}">删除订单</view>
+                    <view bindtap="ckxq" class="list_surplus1" data-yyid="{{item.id}}">查看详情</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='4'}}">
+                    <view bindtap="yysqtk" class="list_surplus2" data-yyid="{{item.id}}" wx:if="{{item.ydcode!=''}}">申请退款</view>
+                    <view bindtap="scyy" class="list_surplus2" data-yyid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus" style="margin-right:0">已取消</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='5'}}">
+                    <view class="list_surplus">待审核</view>
+                    <view bindtap="ckxq" class="list_surplus1" data-yyid="{{item.id}}">查看详情</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='6'}}">
+                    <view bindtap="scyy" class="list_surplus2" data-yyid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus1" style="color:{{color}};border: 1rpx solid {{color}}">已退款</view>
+                </view>
+                <view class="list_cancel" wx:if="{{item.state=='7'}}">
+                    <view bindtap="scyy" class="list_surplus2" data-yyid="{{item.id}}">删除订单</view>
+                    <view class="list_surplus2" style="margin-right:0">已拒绝</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

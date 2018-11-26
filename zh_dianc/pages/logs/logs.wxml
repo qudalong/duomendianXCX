@@ -1,0 +1,130 @@
+<view class="hydlzhezhao" wx:if="{{hydl==true}}"></view>
+<view class="hydlbd" wx:if="{{hydl==true}}">
+    <view class="hydl">
+        <icon size="50" type="success"></icon>
+        <view>欢迎登录</view>
+    </view>
+    <button bindgetuserinfo="bindGetUserInfo" class="hydlqueren" openType="getUserInfo">确定</button>
+</view>
+<view class="font">
+    <view class="logs_header" style="background:{{color}}">
+        <view class="logs_img">
+            <image class="logs_imgs" src="{{avatarUrl}}"></image>
+            <view class="logs_name">
+                <view class="logs_name1">{{nickName}}</view>
+            </view>
+        </view>
+        <navigator class="qd" url="qd/qd" wx:if="{{qdset.is_open=='1'}}">
+            <image src="../images/qd.png"></image>
+            <view>签到领积分</view>
+        </navigator>
+    </view>
+    <view class="logs_content">
+        <view bindtap="wallet" class="content_left">
+            <view class="content_left1">
+                <text class="content_font">{{wallet}}</text>
+                <text class="content_coll">元</text>
+            </view>
+            <view class="content_integral">钱包</view>
+        </view>
+        <view bindtap="youhui2" class="content_left">
+            <view class="content_middle">
+                <text class="content_font">{{coupon+Vouchers}}</text>
+                <text class="content_coll">个</text>
+            </view>
+            <view class="content_integral">优惠</view>
+        </view>
+        <view class="content_left">
+            <view bindtap="integral" class="content_right">
+                <text class="content_font">{{integral}}</text>
+                <text class="content_coll">分</text>
+            </view>
+            <view class="content_integral">积分</view>
+        </view>
+    </view>
+    <view class="logs_order">
+        <view bindtap="map" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/dizhi.png" style="height:40rpx;"></image>
+                <view>收货地址</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="czzx" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/bankcard.png"></image>
+                <view>充值中心</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="youhui" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/youhuiquan@2x.png"></image>
+                <view>领取优惠券</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="youhui2" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/quan@3x.png"></image>
+                <view>我的优惠券</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="jfsc" class="logs_center" wx:if="{{bqxx.is_jf=='1'}}">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/jfsc.png"></image>
+                <view>积分商城</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="fx" class="logs_center" wx:if="{{fxset.is_open=='1'}}">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/fxzx.png"></image>
+                <view>分销中心</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+    </view>
+    <view class="logs_seller">
+        <view bindtap="zxkf" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/zxkf.png"></image>
+                <view>在线客服</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="bzzx" class="logs_center">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/bzzx.png" style="width:40rpx;height:40rpx;"></image>
+                <view>帮助中心</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+        <view bindtap="wyrz" class="logs_center" wx:if="{{bqxx.is_ruzhu=='1'}}">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/ruzhu.png"></image>
+                <view>我要入驻</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+    </view>
+    <view class="logs_seller">
+        <view bindtap="seller" class="logs_center" style="border:none;">
+            <view class="logs_centerimg">
+                <image class="center_map" src="../images/dianpu-fill@2x.png"></image>
+                <view>商家入口</view>
+            </view>
+            <image class="center_img" src="../images/Path@2x.png"></image>
+        </view>
+    </view>
+    <view class="footer">
+        <view bindtap="tzxcx" class="copyright">
+            <view class="copyright_logo">
+                <image class="copyright_img" mode="aspectFill" src="../images/copyright_logo.png"></image>
+                <view class="copyright_text">{{bqxx.bq_name}}</view>
+            </view>
+            <view class="copyright_txt">{{bqxx.support}}</view>
+        </view>
+    </view>
+</view>

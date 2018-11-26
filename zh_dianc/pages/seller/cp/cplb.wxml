@@ -1,0 +1,71 @@
+<import src="../template.wxml"></import>
+<template is="tabbar" data="{{tabbar:tabbar}}"></template>
+<view class="goods">
+    <view class="menu-wrapper">
+        <scroll-view scrollY="true" style="height:{{height}}rpx;padding-bottom:10rpx;">
+            <view bindtap="selectMenu" class="menu-item border-1px {{index==catalogSelect?'active':'selsect'}}" data-id="{{item.id}}" data-item-index="{{index}}" wx:for="{{dishes}}" wx:key="{{item.value}}">
+                <view class="goods_border" style="background:{{color}}" wx:if="{{index==catalogSelect}}"></view>
+                <view class="text">
+          {{item.type_name}}
+        </view>
+            </view>
+        </scroll-view>
+    </view>
+    <scroll-view scrollY class="foods-wrapper" style="height:{{height}}rpx;padding-bottom:10rpx;">
+        <view class="title">{{dishes[catalogSelect].type_name}}</view>
+        <view class="kong" wx:if="{{dishes[catalogSelect].goods.length==0}}">
+            <image src="../../images/wushuju.png"></image>
+            <view>此分类暂未添加商品</view>
+        </view>
+        <view data-food="{{food}}" wx:for="{{dishes[catalogSelect].goods}}" wx:for-item="food" wx:key="{{item.value}}">
+            <view class="food-item">
+                <view class="icon">
+                    <image bindtap="clickImage" class="{{food.open?'bomb_show':''}}" data-id="{{food.id}}" id="{{food.id}}" src="{{url}}{{food.img}}" style="width: 130rpx;height: 130rpx;">
+                        <view class="dndw" wx:if="{{food.dishes_type=='1'}}">外卖菜品</view>
+                        <view class="dndw" wx:if="{{food.dishes_type=='2'}}">店内菜品</view>
+                        <view class="dndw" wx:if="{{food.dishes_type=='3'}}">店内+外卖</view>
+                    </image>
+                </view>
+                <view class="content">
+                    <view class="name elipsis">{{food.name}}</view>
+                    <view class="extra" style="margin-top:5rpx;">
+                        <text class="count">库存:{{food.num}}</text>
+                        <text class="count">月销量{{food.xs_num}}份</text>
+                    </view>
+                    <view>
+                        <text class="sh_content6">外卖¥</text>
+                        <text class="sh_content6">{{food.wm_money}}</text>
+                        <text class="sh_content7" style="margin-left:30rpx;">店内¥</text>
+                        <text class="sh_content7">{{food.money}}</text>
+                    </view>
+                    <view class="cartControl-wrapper">
+                        <view class="cartControl"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="dbbj">
+                <view bindtap="sjxj" class="sj" data-cpid="{{food.id}}" data-shelves="1" wx:if="{{food.is_shelves=='2'}}">
+          点击上架
+        </view>
+                <view bindtap="sjxj" class="xj" data-cpid="{{food.id}}" data-shelves="2" wx:else>
+          点击下架
+        </view>
+                <view class="dbbjr">
+                    <view bindtap="tjgg" class="bj" data-cpid="{{food.id}}">
+                        <image src="../../images/tianjia.png" style="width:50rpx;height:50rpx;"></image>
+                    </view>
+                    <view bindtap="bianj" class="bj" data-cpid="{{food.id}}">
+                        <image src="../../images/bj.png"></image>
+                    </view>
+                    <view bindtap="sccp" class="bj" data-cpid="{{food.id}}">
+                        <image src="../../images/sc.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="footer">
+    <view bindtap="spfl" class="spfl">商品分类</view>
+    <view bindtap="tjsp" class="tjsp">添加商品</view>
+</view>

@@ -1,0 +1,90 @@
+.dish_img {
+    width: 100%;
+    height: 500rpx;
+    background-color: pink;
+    border-bottom: 5rpx solid #000;
+}
+
+.dish_img image {
+    width: 100%;
+    height: 500rpx;
+    background-color: pink;
+}
+
+.dish_banner {
+    padding: 25rpx 30rpx 30rpx;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+
+.dish_title {
+    font-size: 34rpx;
+}
+
+.dish_month {
+    color: #999;
+    font-size: 28rpx;
+}
+
+.dish_cart {
+    margin-top: 30rpx;
+}
+
+.dish_frame {
+    width: 170rpx;
+    height: 50rpx;
+    background-color: #FF9900;
+    color: white;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 6rpx;
+}
+
+.cart_text {
+    color: #FF6000;
+    font-size: 36rpx;
+}
+
+.dish_content {
+    padding: 0rpx 30rpx;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+
+.dish_seller {
+    border-bottom: 1rpx solid #EEEEEE;
+    padding: 30rpx 0rpx;
+}
+
+.dish_info {
+    color: #999;
+    padding-left: 10rpx;
+    border-left: 5rpx solid #0097FF;
+    font-size: 28rpx;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+.dish_rice {
+    font-size: 28rpx;
+    color: #333;
+    margin-top: 20rpx;
+}
+
+.dish_seller_info {
+    padding: 30rpx 0rpx;
+}
+
+.dish_praise {
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.dish_praise1 {
+    margin-top: 20rpx;
+    height: 10rpx;
+    width: 100%;
+    background-color: #FF9900;
+    border-radius: 6rpx;
+}

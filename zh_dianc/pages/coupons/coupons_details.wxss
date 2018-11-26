@@ -1,0 +1,138 @@
+page {
+    background-color: #F4F4F4;
+}
+
+.info {
+    padding: 20rpx;
+    position: relative;
+}
+
+.info_header {
+    height: 190rpx;
+    background-color: #34AAFF;
+    border-radius: 15rpx;
+    padding: 35rpx;
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.info_bottom {
+    background-color: #ffffff;
+    padding: 0rpx 20rpx;
+    border-radius: 15rpx;
+    border-top: 10rpx #34AAFF dotted;
+    position: absolute;
+    width: 672rpx;
+    top: 91%;
+    z-index: 2;
+}
+
+.info_banner {
+    font-size: 26rpx;
+    color: #999;
+    border-bottom: 1rpx #E0E0E0 dashed;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-top: -9rpx;
+}
+
+.info_user {
+    font-size: 26rpx;
+    color: #999;
+}
+
+.info_flex {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 26rpx;
+    margin-top: 5rpx;
+}
+
+.info_limit {
+    height: 60rpx;
+    padding: 35rpx 0rpx 40rpx;
+    border-bottom: 1rpx #E0E0E0 dashed;
+}
+
+.cu_label {
+    width: 10rpx;
+    height: 10rpx;
+    background-color: #34AAFF;
+    border-radius: 50%;
+    margin-right: 15rpx;
+}
+
+.label_tu {
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    background-color: #F4F4F4;
+    border-radius: 50%;
+    top: 255rpx;
+    z-index: 3;
+}
+
+.label_right {
+    left: 0rpx;
+}
+
+.label_left {
+    right: 0rpx;
+}
+
+.info_limit1 {
+    height: 60rpx;
+    padding: 35rpx 0rpx 80rpx;
+}
+
+.footer {
+    background: #34AAFF;
+    width: 100%;
+    height: 100rpx;
+    color: white;
+    position: fixed;
+    left: 0rpx;
+    bottom: 0rpx;
+    border-radius: 0rpx;
+}
+
+.info_title {
+    border: 1rpx solid white;
+    width: 100%;
+    height: 100%;
+}
+
+.info_top {
+    width: 200rpx;
+    height: 50rpx;
+    background-color: #34AAFF;
+    position: absolute;
+    top: 10rpx;
+    left: 35%;
+    text-align: center;
+    line-height: 50rpx;
+}
+
+.text_small {
+    font-size: 28rpx;
+}
+
+.info_middel {
+    margin-top: 30rpx;
+}
+
+.text_big {
+    font-size: 60rpx;
+}
+
+.info_term {
+    background-color: #34AAFF;
+    width: 360rpx;
+    font-size: 26rpx;
+    position: absolute;
+    bottom: 23rpx;
+    left: 25%;
+}

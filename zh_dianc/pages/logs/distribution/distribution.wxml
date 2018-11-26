@@ -1,0 +1,51 @@
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="distribution">
+        <view class="header">
+            <image mode="aspectFill" src="{{url}}{{img}}" wx:if="{{img!=''}}"></image>
+        </view>
+        <view class="banner">
+            <view class="huanying">欢迎加入
+        <text>{{pt_name}}</text>，请填写申请信息。</view>
+            <view class="bannerbox">
+                <view class="">邀请人</view>
+                <input disabled="true" placeholderStyle="color:#999;" style="color:#34aaff" type="text" value="{{yqr}}"></input>
+            </view>
+            <view class="bannerbox">
+                <view class="">姓名</view>
+                <input name="name" placeholder="请填写真实姓名" placeholderStyle="color:#999;" type="text"></input>
+            </view>
+            <view class="bannerbox">
+                <view class="">手机号</view>
+                <input name="tel" placeholder="请填写手机号码" placeholderStyle="color:#999;" type="number"></input>
+            </view>
+            <view class="read">
+                <checkbox-group name="checkbox">
+                    <checkbox color="#ff6161" style="zoom:80%" value="1"></checkbox>
+                </checkbox-group>
+                <view>我已阅读并同意
+          <text bindtap="lookck" class="readfont">《分销商申请协议》</text>
+                </view>
+            </view>
+        </view>
+        <view class="disbox">
+            <button disabled="{{disabled}}" formType="submit" style="background:{{disabled?'#87CEFF':'#34aaff'}};">{{logintext}}</button>
+        </view>
+        <view class="banner">
+            <view class="section">
+                <image class="secimg" src="../image/"></image>
+                <view>分销商优势</view>
+            </view>
+            <view class="section">
+                <rich-text nodes="{{fxset.instructions}}" style="color:#666"></rich-text>
+            </view>
+        </view>
+    </view>
+</form>
+<view class="zhezhao" hidden="{{fwxy}}"></view>
+<view class="kcrzxy" hidden="{{fwxy}}">
+    <view class="kcrzxyhd">分销商申请协议</view>
+    <scroll-view scrollY class="kcrzxybd" style="height: 600rpx;">
+        <rich-text nodes="{{fx_details}}"></rich-text>
+    </scroll-view>
+    <view bindtap="queren" class="queren">确定</view>
+</view>

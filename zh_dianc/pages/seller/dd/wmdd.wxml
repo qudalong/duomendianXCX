@@ -1,0 +1,330 @@
+<view class="weui-cell weui-cell_select tbsx">
+    <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">按日期搜索</view>
+    </view>
+    <view class="weui-cell__bd">
+        <picker bindchange="bindDateChange" mode="date" value="{{date}}">
+            <view class="weui-select weui-select_in-select-after">{{date}}</view>
+        </picker>
+    </view>
+    <view bindtap="sousuo" class="weui-cell__ft">
+    搜索
+  </view>
+</view>
+<view class="list_header">
+    <view bindtap="tabClick" class="list_title {{activeIndex==index?'default':'selsect'}}" id="{{index}}" wx:for="{{tabs}}">
+        <view>{{item}}</view>
+        <view class="list_border" hidden="{{activeIndex!=index}}" style="background-color:#34aaff;"></view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=0}}">
+    <view class="list_imgbk2" hidden="{{djd.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时还没有待接的单哦！</view>
+    </view>
+    <view class="{{index==0?'djdtop':'djd'}}" wx:for="{{djd}}">
+        <view class="djdh">
+            <view class="djdh1">{{item.order.id}}</view>
+            <view class="dpsh2">
+                <view>
+                    <text>下单时间</text>
+                    <text>{{item.order.time}}</text>
+                </view>
+                <view class="psxx" style="color:rgb(245, 189, 55)" wx:if="{{item.order.is_take=='1'}}">到店自取</view>
+            </view>
+        </view>
+        <view class="djdb">
+            <view class="djdb1">
+                <view class="djdb1-left">
+            {{item.order.name}}
+          </view>
+                <view class="djdb1-right">
+                    <image bindtap="dw" data-lat="{{item.order.lat}}" data-lng="{{item.order.lng}}" data-wz="{{item.order.address}}" src="../../images/gztdw.png"></image>
+                    <image bindtap="tel" data-tel="{{item.order.tel}}" src="../../images/gztdh.png"></image>
+                </view>
+            </view>
+            <view class="djdb2">{{item.order.address}}</view>
+        </view>
+        <view class="djdc">
+            <view class="djdc1">商品（{{item.goods.length}}）</view>
+            <view class="djdc2" wx:if="{{item.order.note!=''}}">
+                <view>
+                    <text>备注：</text>{{item.order.note}}</view>
+            </view>
+            <view class="djdc3">
+                <view>{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                <view>
+                    <navigator url="dddl?ddid={{item.order.id}}">查看详情</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="djdd">
+            <view class="djdd1">
+                <view class="djdd-left">
+                    <view>本单预计收入</view>
+                    <image src="../../images/wh.png"></image>
+                </view>
+                <view class="djdd-right">
+            ￥{{item.order.money}}
+          </view>
+            </view>
+        </view>
+        <view class="djdde">
+            <view bindtap="jied" data-oid="{{item.order.id}}" wx:if="{{psmode=='1'||psmode=='2'}}">接单</view>
+            <view bindtap="lookck" data-istake="{{item.order.is_take}}" data-oid="{{item.order.id}}" wx:if="{{psmode=='3'}}">接单</view>
+            <view bindtap="rrjd" data-istake="{{item.order.is_take}}" data-oid="{{item.order.id}}" wx:if="{{psmode=='4'}}">接单</view>
+            <view bindtap="kfwjd" data-istake="{{item.order.is_take}}" data-oid="{{item.order.id}}" wx:if="{{psmode=='5'}}">接单</view>
+        </view>
+    </view>
+    <view class="kong" wx:if="{{jzwb}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=1}}">
+    <view class="list_imgbk2" hidden="{{dps.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时还没有待配送的单哦！</view>
+    </view>
+    <view class="{{index==0?'djdtop':'djd'}}" wx:for="{{dps}}">
+        <view class="djdh">
+            <view class="djdh1">{{item.order.id}}</view>
+            <view class="dpsh2">
+                <view>
+                    <text>下单时间</text>
+                    <text>{{item.order.time}}</text>
+                </view>
+                <view class="psxx">配送中</view>
+            </view>
+        </view>
+        <view class="djdb">
+            <view class="djdb1">
+                <view class="djdb1-left">
+            {{item.order.name}}
+          </view>
+                <view class="djdb1-right">
+                    <image bindtap="dw" data-lat="{{item.order.lat}}" data-lng="{{item.order.lng}}" data-wz="{{item.order.address}}" src="../../images/gztdw.png"></image>
+                    <image bindtap="tel" data-tel="{{item.order.tel}}" src="../../images/gztdh.png"></image>
+                </view>
+            </view>
+            <view class="djdb2">{{item.order.address}}</view>
+        </view>
+        <view class="djdc">
+            <view class="djdc1">商品（{{item.goods.length}}）</view>
+            <view class="djdc2" wx:if="{{item.order.note!=''}}">
+                <view>
+                    <text>备注：</text>{{item.order.note}}</view>
+            </view>
+            <view class="djdc3">
+                <view>{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                <view>
+                    <navigator url="dddl?ddid={{item.order.id}}">查看详情</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="djdd">
+            <view class="djdd1">
+                <view class="djdd-left">
+                    <view>本单预计收入</view>
+                    <image src="../../images/wh.png"></image>
+                </view>
+                <view class="djdd-right">
+            ￥{{item.order.money}}
+          </view>
+            </view>
+        </view>
+        <view class="djdde">
+            <view bindtap="wcps" data-oid="{{item.order.id}}">完成配送</view>
+        </view>
+    </view>
+    <view class="kong" wx:if="{{jzwb}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=2}}">
+    <view class="list_imgbk2" hidden="{{tkdd.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时还没有退款订单哦！</view>
+    </view>
+    <view class="{{index==0?'djdtop':'djd'}}" wx:for="{{tkdd}}">
+        <view class="djdh">
+            <view class="djdh1">{{item.order.id}}</view>
+            <view class="dpsh2">
+                <view>
+                    <text>下单时间</text>
+                    <text>{{item.order.time}}</text>
+                </view>
+                <view class="psxx" wx:if="{{item.order.state=='7'}}">待退款</view>
+                <view class="psxx" wx:if="{{item.order.state=='8'}}">已通过</view>
+                <view class="psxx" wx:if="{{item.order.state=='9'}}">已拒绝</view>
+            </view>
+        </view>
+        <view class="djdb">
+            <view class="djdb1">
+                <view class="djdb1-left">
+            {{item.order.name}}
+          </view>
+                <view class="djdb1-right">
+                    <image bindtap="dw" data-lat="{{item.order.lat}}" data-lng="{{item.order.lng}}" data-wz="{{item.order.address}}" src="../../images/gztdw.png"></image>
+                    <image bindtap="tel" data-tel="{{item.order.tel}}" src="../../images/gztdh.png"></image>
+                </view>
+            </view>
+            <view class="djdb2">{{item.order.address}}</view>
+        </view>
+        <view class="djdc">
+            <view class="djdc1">商品（{{item.goods.length}}）</view>
+            <view class="djdc2" wx:if="{{item.order.note!=''}}">
+                <view>
+                    <text>备注：</text>{{item.order.note}}</view>
+            </view>
+            <view class="djdc3">
+                <view>{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                <view>
+                    <navigator url="dddl?ddid={{item.order.id}}">查看详情</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="djdd">
+            <view class="djdd1">
+                <view class="djdd-left">
+                    <view>本单预计收入</view>
+                    <image src="../../images/wh.png"></image>
+                </view>
+                <view class="djdd-right">
+            ￥{{item.order.money}}
+          </view>
+            </view>
+        </view>
+        <view class="djdde" wx:if="{{item.order.state=='7'}}">
+            <view bindtap="tgtk" data-oid="{{item.order.id}}">通过退款</view>
+            <view bindtap="jjtk" data-oid="{{item.order.id}}">拒绝退款</view>
+        </view>
+        <view class="djdde" wx:if="{{item.order.state=='8'||item.order.state=='9'}}">
+            <view bindtap="scdd" data-oid="{{item.order.id}}">删除订单</view>
+        </view>
+    </view>
+    <view class="kong" wx:if="{{jzwb}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>
+<view class="list" hidden="{{activeIndex!=3}}">
+    <view class="list_imgbk2" hidden="{{ywc.length!=0}}">
+        <image class="list_imgbk" src="../../images/list.png"></image>
+        <view class="list_imgbk3">您暂时还没有已完成订单哦！</view>
+    </view>
+    <view class="{{index==0?'djdtop':'djd'}}" wx:for="{{ywc}}">
+        <view class="djdh">
+            <view class="djdh1">{{item.order.id}}</view>
+            <view class="dpsh2">
+                <view>
+                    <text>下单时间</text>
+                    <text>{{item.order.time}}</text>
+                </view>
+                <view class="psxx">已完成</view>
+            </view>
+        </view>
+        <view class="djdb">
+            <view class="djdb1">
+                <view class="djdb1-left">
+            {{item.order.name}}
+          </view>
+                <view class="djdb1-right">
+                    <image bindtap="dw" data-lat="{{item.order.lat}}" data-lng="{{item.order.lng}}" data-wz="{{item.order.address}}" src="../../images/gztdw.png"></image>
+                    <image bindtap="tel" data-tel="{{item.order.tel}}" src="../../images/gztdh.png"></image>
+                </view>
+            </view>
+            <view class="djdb2">{{item.order.address}}</view>
+        </view>
+        <view class="djdc">
+            <view class="djdc1">商品（{{item.goods.length}}）</view>
+            <view class="djdc2" wx:if="{{item.order.note!=''}}">
+                <view>
+                    <text>备注：</text>{{item.order.note}}</view>
+            </view>
+            <view class="djdc3">
+                <view>{{item.goods[0].name}}等{{item.goods.length}}类菜品</view>
+                <view>
+                    <navigator url="dddl?ddid={{item.order.id}}">查看详情</navigator>
+                </view>
+            </view>
+        </view>
+        <view class="djdd">
+            <view class="djdd1">
+                <view class="djdd-left">
+                    <view>本单预计收入</view>
+                    <image src="../../images/wh.png"></image>
+                </view>
+                <view class="djdd-right">
+            ￥{{item.order.money}}
+          </view>
+            </view>
+        </view>
+        <view class="djdde">
+            <view bindtap="scdd" data-oid="{{item.order.id}}">删除订单</view>
+        </view>
+    </view>
+    <view class="kong" wx:if="{{jzwb}}">
+        <image src="../../images/wushuju.png"></image>
+        <view>没有更多了</view>
+    </view>
+</view>
+<view class="jzz" hidden="{{jzgd}}">
+    <image class="Rotation" src="../../images/jzz.png"></image>
+    <view>加载中...</view>
+</view>
+<view class="zhezhao" hidden="{{fwxy}}"></view>
+<view class="kcrzxy" hidden="{{fwxy}}">
+    <view class="kcrzxyhd">UU跑腿信息</view>
+    <scroll-view scrollY class="kcrzxybd" style="height: 450rpx;">
+        <view class="uu">
+            <text>此信息由</text>
+            <image src="../../images/uupt.png"></image>
+            <text>提供</text>
+        </view>
+        <view class="weui-cell__bd" style="padding: 20rpx 30rpx;" wx:if="{{uuinfo.return_code!='ok'}}">{{uuinfo.return_msg}}</view>
+        <view class="weui-cells weui-cells_after-title" wx:else>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="../../images/psjl.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">配送距离</view>
+                <view class="weui-cell__ft">
+                    <text style="color:#f58f3e;margin-right:10rpx;">{{uuinfo.distance}}</text>米
+          </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="../../images/ptfy.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">总计跑腿费用</view>
+                <view class="weui-cell__ft">
+                    <text style="color:#ff6e6e;margin-right:10rpx;">{{uuinfo.total_money}}</text>元</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="../../images/yhje.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">优惠金额</view>
+                <view class="weui-cell__ft">
+                    <text style="color:#f58f3e;margin-right:10rpx;">{{uuinfo.total_priceoff}}</text>元</view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__hd">
+                    <image src="../../images/qb.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                </view>
+                <view class="weui-cell__bd">实际支付金额</view>
+                <view class="weui-cell__ft">
+                    <text style="color:#34aaff;margin-right:10rpx;">{{uuinfo.need_paymoney}}</text>元</view>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="kcrzxyft" wx:if="{{uuinfo.return_code=='ok'}}">
+        <view bindtap="qx" class="queren" style="background:#ff6e6e;margin-right:40rpx;">取消</view>
+        <view bindtap="queren" class="queren">接单</view>
+    </view>
+    <view class="kcrzxyft" wx:else>
+        <view bindtap="qx" class="queren">确定</view>
+    </view>
+</view>
